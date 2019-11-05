@@ -14,14 +14,19 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 import { SigninComponent } from '../../pages/signin/signin.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { IgxDatePickerModule } from "igniteui-angular";
 
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AuthService } from 'src/app/auth.service';
 import { AuthLayoutModule } from '../auth-layout/auth-layout.module';
-// import { PlanPartyComponent } from '../../pages/plan-party/plan-party.component';
-// import { DashboardService } from 'src/app/pages/dashboard/dashboard.service';
-// import { PlanPartyServices } from 'src/app/pages/plan-party/plan-party.services';
+import { PlanPartyComponent } from '../../pages/plan-party/plan-party.component';
+import { DashboardService } from '../../pages/dashboard/dashboard.service';
+import { PlanPartyServices } from '../../pages/plan-party/plan-party.services';
+import { MatTableModule, MatDatepickerModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -32,6 +37,13 @@ import { AuthLayoutModule } from '../auth-layout/auth-layout.module';
     NgbModule,
     ReactiveFormsModule,
     AuthLayoutModule,
+    MatTableModule,
+    MatDatepickerModule,
+    IgxDatePickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    SelectDropDownModule,
+    NgMultiSelectDropDownModule.forRoot(),
     
   ],
   declarations: [
@@ -43,10 +55,13 @@ import { AuthLayoutModule } from '../auth-layout/auth-layout.module';
     MapComponent,
     SigninComponent,
     DashboardComponent,
+    PlanPartyComponent
     // RtlComponent
   ],
   providers: [
     AuthService,
+    DashboardService,
+    PlanPartyServices
   ],
 })
 export class AdminLayoutModule {}
