@@ -1,0 +1,22 @@
+.example-trigger {
+    display: inline-block;
+  }
+
+  .plan-container {
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    display: flex;
+    left: 50%;
+    top: 50%;
+    margin-left: -12%;
+    position: absolute;
+    margin-top: -25%;
+  }
+
+  .card-header {
+    margin: 0 auto; 
+    align-items: center;
+}  
+
+

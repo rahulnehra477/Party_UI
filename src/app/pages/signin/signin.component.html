@@ -1,0 +1,51 @@
+<div class="login-container">
+  <div class="login-content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header"><h5 class=" title">LOGIN</h5></div>
+        <div class="card-body">
+           <form [formGroup]="loginForm" (ngSubmit)="submitform()">
+            
+
+
+            <div class="row">
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label> Username </label>
+                  <input type="text" class=" form-control" placeholder="username" formControlName="empId" >
+                </div>
+              </div>
+            
+                     
+
+
+
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label> Password </label>
+                  <input type="password" class=" form-control" placeholder="password" formControlName="password" >
+                </div>
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <button class=" btn btn-fill btn-danger" type="submit" >Log In</button>
+            </div>
+          </form> 
+
+          
+
+
+
+      
+
+
+
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+</div>
+</div>
