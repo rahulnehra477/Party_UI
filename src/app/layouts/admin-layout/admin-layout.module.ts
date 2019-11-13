@@ -27,7 +27,7 @@ import { PlanPartyComponent } from '../../pages/plan-party/plan-party.component'
 import { DashboardService } from '../../pages/dashboard/dashboard.service';
 import { PlanPartyServices } from '../../pages/plan-party/plan-party.services';
 import { MatTableModule, MatDatepickerModule } from '@angular/material';
-import { barComponent } from 'src/app/pages/bar/bar.component';
+// import { barComponent } from 'src/app/pages/bar/bar.component';
 
 @NgModule({
   imports: [
@@ -56,8 +56,8 @@ import { barComponent } from 'src/app/pages/bar/bar.component';
     MapComponent,
     SigninComponent,
     DashboardComponent,
-    PlanPartyComponent,
-    barComponent
+    PlanPartyComponent
+    // barComponent
     // RtlComponent
   ],
   providers: [

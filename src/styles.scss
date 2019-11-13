@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background-image: url(C:\Latest\ROCK\src\assets\img\slider.png);
-    }
-
     @import "~ng-pick-datetime/assets/style/picker.min.css";
+    body {
+        background-image: url("C:\Latest\ROCK\src\assets\img\slider.png");
+        }
