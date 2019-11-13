@@ -1,3 +1,4 @@
+@import "~ng-pick-datetime/assets/style/picker.min.css";
 .example-trigger {
     display: inline-block;
   }
@@ -18,5 +19,10 @@
     margin: 0 auto; 
     align-items: center;
 }  
+
+.text {
+  background-color: white;
+  color: black;
+}
 
 

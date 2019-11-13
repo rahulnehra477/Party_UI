@@ -11,8 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-plan-party',
   templateUrl: './plan-party.component.html',
-  styleUrls: ["./plan-party.component.css"],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ["./plan-party.component.css"]
+  
 })
 export class PlanPartyComponent implements OnInit {
   partyTitle='';
