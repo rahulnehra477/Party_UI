@@ -20,7 +20,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { AuthService } from './auth.service';
 import { CommonModule } from '@angular/common';
-import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 
 @NgModule({
   imports: [
@@ -36,7 +35,6 @@ import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
     HttpClientModule,
     ComponentsModule,
     NgbModule,
-    AdminLayoutModule,
     RouterModule,
     AppRoutingModule,
     ToastrModule.forRoot()

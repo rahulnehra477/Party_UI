@@ -5,44 +5,39 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthService{
-     private authenticated=false;
+    private static  authenticated;
     authUser :string;
     loginUrl = "http://localhost:8102/party/login";
     constructor(private router:Router, private httpClient:HttpClient){
-
+        console.log('Initialising again Authservice');
     }
 
     signIn(user : User){
         return this.httpClient.post(this.loginUrl,user).subscribe(
             (response => {
                 console.log('Login Successfully');
-                this.authenticated=true;
+                this.setAuthenticated(true);
                 this.authUser = user.empId;
+                console.log('authenticated----:'+this.isAuthenticated());
                 this.router.navigate(['/dashboard']);
             }
                 
             ),
             (error) => {
                 console.log('Login failed');
-                this.authenticated=false;
+                this.setAuthenticated(false);
             }
         );
-        if(user.empId==='tushar' && user.password==='tushar'){
-            console.log('Login Successfully');
-            this.authenticated=true;
-            this.authUser = user.empId;
-            this.router.navigate(['/dashboard']);
-        }else{
-            console.log('Login failed');
-            this.authenticated=false;
-        }
+       
 
     }
     isAuthenticated(){
-        return this.authenticated;
+        console.log('authenticated:'+AuthService.authenticated);
+        return AuthService.authenticated;
     }
-    setAuthenticated(auth:boolean){
-        this.authenticated=auth;
 
+    setAuthenticated(authenticated){
+        AuthService.authenticated = authenticated;
     }
+    
 }

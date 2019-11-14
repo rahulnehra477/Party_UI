@@ -21,7 +21,7 @@ import { IgxDatePickerModule } from "igniteui-angular";
 
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { AuthService } from 'src/app/auth.service';
+
 import { AuthLayoutModule } from '../auth-layout/auth-layout.module';
 import { PlanPartyComponent } from '../../pages/plan-party/plan-party.component';
 import { DashboardService } from '../../pages/dashboard/dashboard.service';
@@ -61,7 +61,7 @@ import { MatTableModule, MatDatepickerModule } from '@angular/material';
     // RtlComponent
   ],
   providers: [
-    AuthService,
+    
     DashboardService,
     PlanPartyServices
   ],

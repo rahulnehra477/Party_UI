@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { AuthService } from 'src/app/auth.service';
 
 declare interface RouteInfo {
   path: string;
@@ -77,8 +78,9 @@ export class SidebarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    console.log('appsidebar loaded')
     this.menuItems = ROUTES.filter(menuItem => menuItem);
-  }
+    }
   isMobileMenu() {
     if (window.innerWidth > 991) {
       return false;
