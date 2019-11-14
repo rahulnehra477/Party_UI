@@ -17,18 +17,12 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/icons",
-    title: "Icons",
-    rtlTitle: "الرموز",
-    icon: "icon-atom",
+    path: "/plan-party",
+    title: "Plan Party",
+    rtlTitle: "لوحة القيادة",
+    icon: "icon-istanbul",
     class: ""
   },
-  {
-    path: "/maps",
-    title: "Maps",
-    rtlTitle: "خرائط",
-    icon: "icon-pin",
-    class: "" },
   {
     path: "/notifications",
     title: "Notifications",
