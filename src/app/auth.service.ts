@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService{
     private static  authenticated;
     authUser :string;
+    isUserAdmin : boolean;
     loginUrl = "http://localhost:8102/party/login";
     constructor(private router:Router, private httpClient:HttpClient){
         console.log('Initialising again Authservice');
@@ -14,12 +15,18 @@ export class AuthService{
 
     signIn(user : User){
         return this.httpClient.post(this.loginUrl,user).subscribe(
-            (response => {
+            ((response:Response) => {
                 console.log('Login Successfully');
+                
                 this.setAuthenticated(true);
                 this.authUser = user.empId;
                 console.log('authenticated----:'+this.isAuthenticated());
-                this.router.navigate(['/dashboard']);
+                if((<any>response).admin){
+                    this.isUserAdmin = (<any>response).admin;
+                    this.router.navigate(['/dashboard']);
+                }else{
+                    this.router.navigate(['/tables']);
+                }
             }
                 
             ),
