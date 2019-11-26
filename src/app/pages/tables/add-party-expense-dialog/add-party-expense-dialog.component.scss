@@ -1,0 +1,16 @@
+.box-container {
+  background-color: #ccc;
+  border-radius: 8px;
+  padding: 20px;
+
+  .container {
+    input {
+      color: inherit;
+    }
+  }
+
+  h2 {
+    color: inherit;
+    padding-left: 14px;
+  }
+}

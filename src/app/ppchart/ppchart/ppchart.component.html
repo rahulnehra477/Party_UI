@@ -1,40 +1,24 @@
-<app-ppchart
-  [XaxisLabel]="lineChart.XaxisLabel"
-  [data]="lineChart.data"
-  [color]="lineChart.color"
-  [type]="lineChart.type"
-  [chartName]="lineChart.chartName"
-  [tooltipLabel]="lineChart.tooltipLabel"
-></app-ppchart>
-<app-ppchart
-  [XaxisLabel]="pieChart.XaxisLabel"
-  [data]="pieChart.data"
-  [color]="pieChart.color"
-  [type]="pieChart.type"
-  [chartName]="pieChart.chartName"
-  [tooltipLabel]="pieChart.tooltipLabel"
-></app-ppchart>
-<!-- <div class="content">
+<div class="content">
   <div class="row">
     <div class="col-12">
       <div class="card card-chart">
         <div class="card-header ">
           <div class="row">
             <div class="col-sm-6 text-right">
-              <h2 class="card-title pull-left">Performance</h2>
+              <h2 class="card-title pull-left">{{ chartName }}</h2>
             </div>
             <div class="col-sm-6"></div>
           </div>
         </div>
         <div class="card-body">
           <div class="chart-area">
-            <canvas id="chartBig1"></canvas>
+            <canvas #chartHost></canvas>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-lg-12 text-right">
       <div class="card card-chart">
         <div class="card-header">
@@ -49,5 +33,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div> -->
+  </div> -->
+</div>

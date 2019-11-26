@@ -1,0 +1,9 @@
+.table-container {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.hoveraffect:hover {
+  cursor: pointer;
+  text-decoration: underline !important;
+}

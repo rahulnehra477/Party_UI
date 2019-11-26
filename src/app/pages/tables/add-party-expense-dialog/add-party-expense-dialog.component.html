@@ -1,0 +1,31 @@
+<div class="box-container">
+  <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+    <h2 mat-dialog-title>Add Expense Form</h2>
+    <mat-dialog-content class="mat-typography">
+      <div class="container">
+        <div class="form-group">
+          <label for="expense">Add Expense</label>
+          <input
+            type="text"
+            class="form-control"
+            id="expense"
+            placeholder="Enter Expense"
+            formControlName="expense"
+            [ngClass]="{
+              'is-invalid': submitted && expenseForm.controls.expense.errors
+            }"
+          />
+        </div>
+        <!-- </form> -->
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close class="btn btn-default">
+        Cancel
+      </button>
+      <button type="submit" mat-button cdkFocusInitial class="btn btn-default">
+        Add
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>
