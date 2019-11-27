@@ -5,9 +5,11 @@ import { User } from "../model/User";
 import { PartyDetails } from "../model/PartyDetails";
 
 @Injectable()
-export class PlanPartyServices {
-  userUrl: string = "http://localhost:3000/party/user";
-  projectUrl: string = "http://localhost:8102/party/projectdetails/user/673912";
+export class PlanPartyServices{
+  userUrl:string='http://localhost:8102/party/user';
+  // projectUrl:string='http://localhost:8102/party/projectdetails/user/673912';
+  // userUrl:string='http://localhost:3000/users';
+  projectUrl:string='http://localhost:8102/party/projectdetails/user/673912';
 
   getProjectList(): any {
     return this.httpClient.get(this.projectUrl);
@@ -17,7 +19,8 @@ export class PlanPartyServices {
     return this.httpClient.get<User[]>(this.userUrl);
   }
 
-  _url: string = "http://localhost:3000/party/partydetail"; //http://localhost:8081/addParty
+    _url:string="http://localhost:8102/party/partydetail"; //http://localhost:8081/addParty
+    // _url:string="http://localhost:3000/parties";
 
   constructor(private httpClient: HttpClient) {}
 
