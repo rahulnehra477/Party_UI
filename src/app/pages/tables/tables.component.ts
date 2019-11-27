@@ -18,6 +18,7 @@ export class TablesComponent implements OnInit {
   ];
 
   isAdmin = true;
+  todaysdate:Date;
 
   dataSource: MatTableDataSource<any>;
 
@@ -27,6 +28,7 @@ export class TablesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.todaysdate=new Date();
     this.dashboardService.getUser().subscribe(parties => {
       console.log("parties:", parties);
       this.dataSource = new MatTableDataSource(parties);

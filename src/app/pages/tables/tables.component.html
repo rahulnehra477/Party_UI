@@ -82,8 +82,9 @@
                     *matCellDef="let element"
                     style="text-align:center"
                   >
-                    {{ testdata }}
-                    {{ element.date_time | date: "dd/MM/yyyy" }}
+                  <div  [ngClass]="{'green': todaysdate <  element.date_time  ,'yellow': todaysdate > element.date_time }">
+                    {{element.date_time| date:'dd/MM/yyyy'}} 
+                   </div>
                   </td>
                   ]
                 </ng-container>
