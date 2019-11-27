@@ -8,7 +8,7 @@ export class AuthService {
   private static authenticated;
   authUser: string;
   isUserAdmin: boolean;
-  loginUrl = "http://localhost:3000/users";
+  loginUrl = "http://localhost:8102/party/login";
   constructor(private router: Router, private httpClient: HttpClient) {
     console.log("Initialising again Authservice");
   }

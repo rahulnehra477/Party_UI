@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class DashboardService {
-  url: string = "http://localhost:3000/parties"; //http://localhost:8081/parties
+  url: string = "http://localhost:8102/party/partydetail?empId=673912&eventType=1"; //http://localhost:8081/parties
   constructor(private httpClient: HttpClient) {}
 
   public getUser(): Observable<PartyDetails[]> {
