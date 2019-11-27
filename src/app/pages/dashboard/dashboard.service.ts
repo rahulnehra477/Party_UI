@@ -15,13 +15,7 @@ export class DashboardService {
      .pipe( tap(() => console.log('fetching..')),
      map(data=>(
          data.map(partydetails=>({...partydetails , date_time:new Date(partydetails.date_time)}))
-     )),
-     tap(data=>console.log("data",data))
-    
-     );
-    
-
-     
-    
+     ))
+     ); 
  }
 }
