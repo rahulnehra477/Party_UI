@@ -14,12 +14,14 @@ import { MatInputModule } from "@angular/material";
 import { MatCardModule } from "@angular/material";
 import { MatIconModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material";
-import { MatToolbarModule } from "@angular/material";
+import { MatToolbarModule,MatSnackBarModule } from "@angular/material";
+
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { AuthService } from "./auth.service";
 import { CommonModule } from "@angular/common";
+import { UserService } from './user.service';
 
 @NgModule({
   imports: [
@@ -30,6 +32,7 @@ import { CommonModule } from "@angular/common";
     MatButtonModule,
     MatToolbarModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -40,7 +43,7 @@ import { CommonModule } from "@angular/common";
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [AuthService],
+  providers: [AuthService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

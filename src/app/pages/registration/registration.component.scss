@@ -1,14 +1,11 @@
 .login-container {
     height: 100%;
-    width: 100%;
-    align-items: center;
-    display: flex;
-    left: 50%;
-    top: 50%;
-    margin-left: -12%;
+    width: auto;
+    left: 26%;
+    top: 15%;
     position: absolute;
-    margin-top: -25%;
-  }
+}
+
   
   form {
     margin:auto;
@@ -16,11 +13,32 @@
   
   .login-content {
     width: 1000px;
-    display: block;
-    margin: 0 auto;
-    position: center;
   }
   .card-header {
     margin: 0 auto; 
     align-items: center;
 }  
+.label{
+    color:white;
+}
+.card{
+    width:150%;
+}
+.picture{
+border: white;
+}
+.upload_file_container{
+  width:100px;
+  height:40px;
+  position:relative;
+  border:white;
+}
+
+.upload_file_container input {
+  width:100px;
+  height:40px;
+  position:absolute;
+  left:0;
+  top:0;
+  cursor:pointer;
+}
