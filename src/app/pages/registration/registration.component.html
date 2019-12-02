@@ -47,9 +47,9 @@
                 <div class=" form-group">
                   <label class="label"> Email* </label>
                   <input type="text" class=" form-control" placeholder="email" formControlName="emailId">
-                <mat-error *ngIf="errorHandling('emailId', 'pattern')">
-                  You must provide a <strong>Valid</strong> email
-              </mat-error>
+              <div class="alert  alert-danger" *ngIf="RegisForm.get('emailId').hasError('pattern')&& RegisForm.get('emailId').touched">
+                You must provide a <strong>Valid</strong> email
+             </div>
                 </div>
               </div>
               <div class=" col-md-6">

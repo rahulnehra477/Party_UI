@@ -9,7 +9,7 @@ export class UserService {
   SaveUrl = "http://localhost:3000/party/user";
   constructor( private httpClient: HttpClient) {
   }
-  SaveEmployees(data) {
+  SaveUsers(data) {
     return this.httpClient.post<any>(this.SaveUrl, data);
 }
 

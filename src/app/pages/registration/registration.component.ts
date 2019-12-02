@@ -55,7 +55,7 @@ export class RegistrationComponent implements OnInit {
   submitform() {
     if (this.RegisForm.valid) {
       this.userdetails =this.RegisForm.value;
-      this.userService.SaveEmployees(this.userdetails).subscribe(data => {
+      this.userService.SaveUsers(this.userdetails).subscribe(data => {
         // this.snackbar.open('User Registration Sucessfully',null,{
         //   duration: 2000,
         // });
