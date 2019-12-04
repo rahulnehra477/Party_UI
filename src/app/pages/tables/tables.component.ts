@@ -19,7 +19,7 @@ export class TablesComponent implements OnInit {
   ];
 
   isAdmin = true;
-  todaysdate:Date;
+  todaysdate: Date;
 
   dataSource: MatTableDataSource<any>;
 
@@ -30,7 +30,7 @@ export class TablesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.todaysdate=new Date();
+    this.todaysdate = new Date();
     this.dashboardService.getUser().subscribe(parties => {
       console.log("parties:", parties);
       this.isAdmin = this.authService.isUserAdmin;

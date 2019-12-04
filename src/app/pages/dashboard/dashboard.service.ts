@@ -28,7 +28,7 @@ export class DashboardService {
         map(data =>
           data.map(partydetails => ({
             ...partydetails,
-            date_time: new Date(partydetails.date_time)
+            partyDate: new Date(partydetails.partyDate)
           }))
         )
       );

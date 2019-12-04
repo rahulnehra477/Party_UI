@@ -82,9 +82,14 @@
                     *matCellDef="let element"
                     style="text-align:center"
                   >
-                  <div  [ngClass]="{'green': todaysdate <  element.date_time  ,'yellow': todaysdate > element.date_time }">
-                    {{element.date_time| date:'dd/MM/yyyy'}} 
-                   </div>
+                    <div
+                      [ngClass]="{
+                        green: todaysdate < element.partyDate,
+                        yellow: todaysdate > element.partyDate
+                      }"
+                    >
+                      {{ element.partyDate | date: "dd/MM/yyyy" }}
+                    </div>
                   </td>
                   ]
                 </ng-container>
