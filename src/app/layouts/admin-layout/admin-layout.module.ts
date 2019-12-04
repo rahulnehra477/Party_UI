@@ -34,7 +34,8 @@ import {
 } from "@angular/material";
 import { AddPartyExpenseDialogComponent } from "src/app/pages/tables/add-party-expense-dialog/add-party-expense-dialog.component";
 import { PPChartModule } from "src/app/ppchart/ppchart.module";
-import { RegistrationComponent } from 'src/app/pages/registration/registration.component';
+import { RegistrationComponent } from "src/app/pages/registration/registration.component";
+import { UserService } from "src/app/user.service";
 // import { barComponent } from 'src/app/pages/bar/bar.component';
 
 @NgModule({
@@ -74,7 +75,7 @@ import { RegistrationComponent } from 'src/app/pages/registration/registration.c
     // barComponent
     // RtlComponent
   ],
-  providers: [DashboardService, PlanPartyServices],
+  providers: [DashboardService, PlanPartyServices, UserService],
   entryComponents: [AddPartyExpenseDialogComponent]
 })
 export class AdminLayoutModule {}

@@ -1,44 +1,43 @@
 .login-container {
-    height: 100%;
-    width: auto;
-    left: 26%;
-    top: 15%;
-    position: absolute;
+  height: 100%;
+  width: auto;
+  left: 26%;
+  top: 15%;
+  position: absolute;
 }
 
-  
-  form {
-    margin:auto;
-    }
-  
-  .login-content {
-    width: 1000px;
-  }
-  .card-header {
-    margin: 0 auto; 
-    align-items: center;
-}  
-.label{
-    color:white;
+form {
+  margin: auto;
 }
-.card{
-    width:150%;
+
+.login-content {
+  width: 1000px;
 }
-.picture{
-border: white;
+.card-header {
+  margin: 0 auto;
+  align-items: center;
 }
-.upload_file_container{
-  width:100px;
-  height:40px;
-  position:relative;
-  border:white;
+.label {
+  color: white;
+}
+.card {
+  width: 150%;
+}
+.picture {
+  border: white;
+}
+.upload_file_container {
+  width: 100px;
+  height: 40px;
+  position: relative;
+  border: white;
 }
 
 .upload_file_container input {
-  width:100px;
-  height:40px;
-  position:absolute;
-  left:0;
-  top:0;
-  cursor:pointer;
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
 }
