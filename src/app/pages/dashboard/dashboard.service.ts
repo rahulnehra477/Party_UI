@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { PartyDetails } from "../model/PartyDetails";
-import { tap } from "rxjs/operators";
+import { tap, map } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { CONSTANTS } from "../constants/constants";
 import { AuthService } from "src/app/auth.service";
@@ -23,6 +23,14 @@ export class DashboardService {
     };
     return this.httpClient
       .get<PartyDetails[]>(this.url, { params: params })
-      .pipe(tap(() => console.log("fetching..")));
+      .pipe(
+        tap(() => console.log("fetching..")),
+        map(data =>
+          data.map(partydetails => ({
+            ...partydetails,
+            date_time: new Date(partydetails.date_time)
+          }))
+        )
+      );
   }
 }
