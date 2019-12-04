@@ -7,19 +7,44 @@ import { NotificationsComponent } from "../../pages/notifications/notifications.
 import { UserComponent } from "../../pages/user/user.component";
 import { TablesComponent } from "../../pages/tables/tables.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
-import { SigninComponent } from '../../pages/signin/signin.component';
-import { PlanPartyComponent } from '../../pages/plan-party/plan-party.component';
+import { SigninComponent } from "../../pages/signin/signin.component";
+import { PlanPartyComponent } from "../../pages/plan-party/plan-party.component";
+import { AuthGuard } from "src/app/auth/auth.guard";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
-  { path: "dashboard", component: DashboardComponent },
-  { path: "icons", component: IconsComponent },
-  { path: "maps", component: MapComponent },
-  { path: "notifications", component: NotificationsComponent },
-  { path: "user", component: UserComponent },
-  { path: "tables", component: TablesComponent },
-  { path: "typography", component: TypographyComponent },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "icons",
+    component: IconsComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: "maps", component: MapComponent, canActivateChild: [AuthGuard] },
+  {
+    path: "notifications",
+    component: NotificationsComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: "user", component: UserComponent, canActivate: [AuthGuard] },
+  {
+    path: "tables",
+    component: TablesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "typography",
+    component: TypographyComponent,
+    canActivate: [AuthGuard]
+  },
   { path: "signin", component: SigninComponent },
-  { path: "plan-party", component: PlanPartyComponent },
+  {
+    path: "plan-party",
+    component: PlanPartyComponent,
+    canActivate: [AuthGuard]
+  }
   // { path: "rtl", component: RtlComponent }
 ];

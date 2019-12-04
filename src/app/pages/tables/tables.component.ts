@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { DashboardService } from "../dashboard/dashboard.service";
 import { MatTableDataSource, MatDialog } from "@angular/material";
 import { AddPartyExpenseDialogComponent } from "./add-party-expense-dialog/add-party-expense-dialog.component";
+import { AuthService } from "src/app/auth.service";
 
 @Component({
   selector: "app-tables",
@@ -23,12 +24,14 @@ export class TablesComponent implements OnInit {
 
   constructor(
     private dashboardService: DashboardService,
+    private authService: AuthService,
     public dialog: MatDialog
   ) {}
 
   ngOnInit() {
     this.dashboardService.getUser().subscribe(parties => {
       console.log("parties:", parties);
+      this.isAdmin = this.authService.isUserAdmin;
       this.dataSource = new MatTableDataSource(parties);
     });
   }
