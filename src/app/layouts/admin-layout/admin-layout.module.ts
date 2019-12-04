@@ -34,6 +34,7 @@ import {
 } from "@angular/material";
 import { AddPartyExpenseDialogComponent } from "src/app/pages/tables/add-party-expense-dialog/add-party-expense-dialog.component";
 import { PPChartModule } from "src/app/ppchart/ppchart.module";
+import { RegistrationComponent } from 'src/app/pages/registration/registration.component';
 // import { barComponent } from 'src/app/pages/bar/bar.component';
 
 @NgModule({
@@ -66,6 +67,7 @@ import { PPChartModule } from "src/app/ppchart/ppchart.module";
     NotificationsComponent,
     MapComponent,
     SigninComponent,
+    RegistrationComponent,
     DashboardComponent,
     PlanPartyComponent,
     AddPartyExpenseDialogComponent

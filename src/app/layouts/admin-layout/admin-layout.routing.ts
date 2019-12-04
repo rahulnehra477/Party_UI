@@ -10,6 +10,8 @@ import { TypographyComponent } from "../../pages/typography/typography.component
 import { SigninComponent } from "../../pages/signin/signin.component";
 import { PlanPartyComponent } from "../../pages/plan-party/plan-party.component";
 import { AuthGuard } from "src/app/auth/auth.guard";
+import { RegistrationComponent } from "src/app/pages/registration/registration.component";
+
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
@@ -45,6 +47,7 @@ export const AdminLayoutRoutes: Routes = [
     path: "plan-party",
     component: PlanPartyComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  { path: "regis", component: RegistrationComponent, canActivate: [AuthGuard] }
   // { path: "rtl", component: RtlComponent }
 ];
