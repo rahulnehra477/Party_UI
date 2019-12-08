@@ -4,6 +4,9 @@ export const CONSTANTS = {
   PORT: 8102,
   LOGIN: "/party/login",
   PARTY_DETAILS: "/party/partydetail",
+  PARTY_COUNT: "/party/partydetail/getPartyCount",
+  EXPENSE_COUNT: "/party/partydetail/getTotalExpense",
+  ALL: "ALL",
 
   //Local machine
   // BASE_URL: "http://localhost:",

@@ -40,7 +40,6 @@ export class AuthService {
     );
   }
   isAuthenticated() {
-    console.log("authenticated:" + AuthService.authenticated);
     return AuthService.authenticated;
   }
 

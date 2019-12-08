@@ -11,6 +11,7 @@ import { SigninComponent } from "../../pages/signin/signin.component";
 import { PlanPartyComponent } from "../../pages/plan-party/plan-party.component";
 import { AuthGuard } from "src/app/auth/auth.guard";
 import { RegistrationComponent } from "src/app/pages/registration/registration.component";
+import { DashboardDataResolverService } from "src/app/pages/dashboard/dashoboard-data-resolver";
 
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
@@ -18,7 +19,10 @@ export const AdminLayoutRoutes: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    resolve: {
+      partyCountAndExpense: DashboardDataResolverService
+    }
   },
   {
     path: "icons",

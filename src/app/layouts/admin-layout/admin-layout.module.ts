@@ -36,6 +36,7 @@ import { AddPartyExpenseDialogComponent } from "src/app/pages/tables/add-party-e
 import { PPChartModule } from "src/app/ppchart/ppchart.module";
 import { RegistrationComponent } from "src/app/pages/registration/registration.component";
 import { UserService } from "src/app/user.service";
+import { DashboardDataResolverService } from "src/app/pages/dashboard/dashoboard-data-resolver";
 // import { barComponent } from 'src/app/pages/bar/bar.component';
 
 @NgModule({
@@ -75,7 +76,12 @@ import { UserService } from "src/app/user.service";
     // barComponent
     // RtlComponent
   ],
-  providers: [DashboardService, PlanPartyServices, UserService],
+  providers: [
+    DashboardService,
+    PlanPartyServices,
+    UserService,
+    DashboardDataResolverService
+  ],
   entryComponents: [AddPartyExpenseDialogComponent]
 })
 export class AdminLayoutModule {}

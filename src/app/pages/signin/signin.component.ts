@@ -1,14 +1,12 @@
-import { Component, OnInit, ViewEncapsulation} from "@angular/core";
-import { AuthService } from 'src/app/auth.service';
-import { FormBuilder } from '@angular/forms';
-
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { AuthService } from "src/app/auth.service";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
   selector: "app-signin",
   templateUrl: "signin.component.html",
   styleUrls: ["./signin.component.css"],
   encapsulation: ViewEncapsulation.None
-  
 })
 export class SigninComponent implements OnInit {
   loginForm = this.fb.group({
@@ -16,19 +14,15 @@ export class SigninComponent implements OnInit {
     password: [null]
   });
 
-  constructor(private authService : AuthService, private fb: FormBuilder) {}
+  constructor(private authService: AuthService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    
-      
+    this.authService.setAuthenticated(false);
+    this.authService.authUser = null;
   }
-  
-  submitform() {
-        console.log("within on submit method"+this.loginForm.value);
-        this.authService.signIn(this.loginForm.value);
-      
-  }
-  
-}
-  
 
+  submitform() {
+    console.log("within on submit method" + this.loginForm.value);
+    this.authService.signIn(this.loginForm.value);
+  }
+}
