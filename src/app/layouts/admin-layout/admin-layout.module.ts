@@ -30,7 +30,8 @@ import {
   MatDatepickerModule,
   MatFormFieldModule,
   MatInputModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule
 } from "@angular/material";
 import { AddPartyExpenseDialogComponent } from "src/app/pages/tables/add-party-expense-dialog/add-party-expense-dialog.component";
 import { PPChartModule } from "src/app/ppchart/ppchart.module";
@@ -58,6 +59,7 @@ import { DashboardDataResolverService } from "src/app/pages/dashboard/dashoboard
     OwlNativeDateTimeModule,
     SelectDropDownModule,
     MatDialogModule,
+    MatSelectModule,
     NgMultiSelectDropDownModule.forRoot(),
     PPChartModule
   ],

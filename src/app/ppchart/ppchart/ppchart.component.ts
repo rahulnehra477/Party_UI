@@ -4,7 +4,9 @@ import {
   ViewEncapsulation,
   Input,
   ViewChild,
-  ElementRef
+  ElementRef,
+  OnChanges,
+  SimpleChanges
 } from "@angular/core";
 import Chart from "chart.js";
 import { PPchartService } from "./ppchart.service";
@@ -15,7 +17,7 @@ import { CHART_TYPE } from "src/app/pages/model/chartTypeEnum";
   templateUrl: "./ppchart.component.html",
   styleUrls: ["./ppchart.component.scss"]
 })
-export class PPchartComponent implements OnInit {
+export class PPchartComponent implements OnInit, OnChanges {
   @Input() XaxisLabel: string[];
   @Input() data: number[];
   @Input() color: string;
@@ -35,23 +37,25 @@ export class PPchartComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public clicked2: boolean = false;
-  constructor(private chartService: PPchartService) {
-    console.log("consructor called");
-  }
+  constructor(private chartService: PPchartService) {}
 
   ngOnInit() {
     //this.setGraph();
   }
 
   ngAfterViewInit() {
-    console.log();
-    // this.chartHost.nativeElement.innerHTML;
     this.setGraph();
   }
 
-  public updateOptions() {
-    this.myChartData.data.datasets[0].data = this.data;
-    this.myChartData.update();
+  updateOptions() {
+    if (this.myChartData && this.myChartData.data) {
+      this.myChartData.data.datasets[0].data = [...this.data];
+      this.myChartData.update();
+    }
+  }
+
+  ngOnChanges(change: SimpleChanges) {
+    this.updateOptions();
   }
 
   setGraph() {

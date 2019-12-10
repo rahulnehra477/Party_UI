@@ -1,20 +1,33 @@
-<app-ppchart
-  [XaxisLabel]="lineChart.XaxisLabel"
-  [data]="lineChart.data"
-  [color]="lineChart.color"
-  [type]="lineChart.type"
-  [chartName]="lineChart.chartName"
-  [tooltipLabel]="lineChart.tooltipLabel"
-></app-ppchart>
+<div class="custom-select dropdown text-center">
+  <div class="header-title">Select Place</div>
+  <mat-form-field>
+    <mat-select (selectionChange)="onOptionChange($event)">
+      <mat-option>ALL</mat-option>
+      <mat-option *ngFor="let place of placeOptions" [value]="place">{{
+        place
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div>
+  <app-ppchart
+    [XaxisLabel]="lineChart.XaxisLabel"
+    [data]="lineChart.data"
+    [color]="lineChart.color"
+    [type]="lineChart.type"
+    [chartName]="lineChart.chartName"
+    [tooltipLabel]="lineChart.tooltipLabel"
+  ></app-ppchart>
 
-<app-ppchart
-  [XaxisLabel]="pieChart.XaxisLabel"
-  [data]="pieChart.data"
-  [color]="pieChart.color"
-  [type]="pieChart.type"
-  [chartName]="pieChart.chartName"
-  [tooltipLabel]="pieChart.tooltipLabel"
-></app-ppchart>
+  <app-ppchart
+    [XaxisLabel]="pieChart.XaxisLabel"
+    [data]="pieChart.data"
+    [color]="pieChart.color"
+    [type]="pieChart.type"
+    [chartName]="pieChart.chartName"
+    [tooltipLabel]="pieChart.tooltipLabel"
+  ></app-ppchart>
+</div>
 <!-- <div class="content">
   <div class="row">
     <div class="col-12">

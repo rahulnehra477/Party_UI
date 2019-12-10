@@ -28,6 +28,9 @@ export class DashboardComponent {
 
   lineChart: any;
   pieChart: any;
+  selectEvent: string = "Event Type";
+  placeOptions: string[];
+
   constructor(
     private planPartyService: PlanPartyServices,
     private route: ActivatedRoute,
@@ -36,39 +39,25 @@ export class DashboardComponent {
     console.log("consructor called");
   }
 
+  onOptionChange(aa: any) {
+    this.setDataForLineChart(aa && aa.value);
+    this.setDataForPieChart(aa && aa.value);
+  }
+
   ngOnInit() {
-    console.log("ngOnInit called");
     this.route.data.subscribe((response: any) => {
-      console.log("DDDDDDDDDDDDD------->: ", response);
-      this.partyCountList = response[0];
-      this.expenseCountList = response[1];
+      this.partyCountList = response.partyCountAndExpense[0];
+      this.expenseCountList = response.partyCountAndExpense[1];
+      this.placeOptions = Object.keys(this.partyCountList);
     });
 
     this.planPartyService.getUserList().subscribe((response: User[]) => {
       this.userList = response;
     });
 
-    console.log("GGGGGGGGGGGGGGG: ", this.dashboardService.getMonths());
-
-    //
-    //this.setGraph();
-
     this.lineChart = {
-      XaxisLabel: [
-        "Jan",
-        "Feb",
-        "March",
-        "Apr",
-        "May",
-        "June",
-        "July",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec"
-      ],
-      data: [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
+      XaxisLabel: this.dashboardService.getMonths(),
+      data: [],
       color: "#ff0000",
       type: CHART_TYPE.LINE,
       chartName: "Performance",
@@ -76,18 +65,57 @@ export class DashboardComponent {
     };
 
     this.pieChart = {
-      XaxisLabel: ["USA", "GER", "AUS", "UK", "RO", "BR"],
-      data: [53, 20, 10, 80, 100, 45],
+      XaxisLabel: this.dashboardService.getMonths(),
+      data: [],
       color: "#0000ff",
-      type: CHART_TYPE.BAR,
+      type: CHART_TYPE.LINE,
       chartName: "Expenses",
       tooltipLabel: "Total Expenses"
     };
+
+    this.setDataForLineChart("ALL");
+    this.setDataForPieChart("ALL");
+  }
+
+  setDataForLineChart(place: string) {
+    place = place ? place : "ALL";
+    let dataArray: any[];
+    dataArray = this.getDataArrayForChart(this.partyCountList[place]);
+    this.lineChart.data = [...dataArray];
+  }
+
+  setDataForPieChart(place: string) {
+    place = place ? place : "ALL";
+    let dataArray: any[];
+    dataArray = this.getDataArrayForChart(this.expenseCountList[place]);
+    this.pieChart.data = [...dataArray];
   }
 
   public updateOptions() {
     this.myChartData.data.datasets[0].data = this.data;
     this.myChartData.update();
+  }
+
+  getDataArrayForChart(dataObj) {
+    const dataInMonthOrder = [];
+    const keys = Object.keys(dataObj);
+    const monthArr = this.dashboardService.getMonths();
+
+    monthArr.forEach((ele, key) => {
+      let isKeyFound = false;
+      keys.forEach((dataEle, dataV) => {
+        if (dataObj && dataEle.indexOf(ele) > -1) {
+          dataInMonthOrder.push(dataObj[dataEle]);
+          isKeyFound = true;
+        }
+      });
+
+      if (!isKeyFound) {
+        dataInMonthOrder.push(0);
+      }
+    });
+
+    return dataInMonthOrder;
   }
 
   // setGraph() {

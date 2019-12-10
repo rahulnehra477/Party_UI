@@ -63,21 +63,21 @@ export class DashboardService {
     var today = new Date();
 
     var aMonth = today.getMonth();
-    var months = [],
-      i;
+    var months = [];
+    var i: number;
     var month = new Array(
-      "January",
-      "February",
-      "March",
-      "April",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
       "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
     );
     for (i = 0; i < 12; i++) {
       months.push(month[aMonth]);
