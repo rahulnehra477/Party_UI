@@ -60,8 +60,8 @@ export class DashboardComponent {
       data: [],
       color: "#ff0000",
       type: CHART_TYPE.LINE,
-      chartName: "Performance",
-      tooltipLabel: "Total Expenses"
+      chartName: "Parties",
+      tooltipLabel: "Total Parties"
     };
 
     this.pieChart = {

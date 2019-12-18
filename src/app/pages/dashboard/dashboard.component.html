@@ -1,14 +1,19 @@
-<div class="custom-select dropdown text-center">
-  <div class="header-title">Select Place</div>
-  <mat-form-field>
-    <mat-select (selectionChange)="onOptionChange($event)">
-      <mat-option>ALL</mat-option>
-      <mat-option *ngFor="let place of placeOptions" [value]="place">{{
-        place
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <div class="custom-select dropdown text-center">
+        <div class="header-title">Select Place</div>
+          <mat-form-field>
+            <mat-select (selectionChange)="onOptionChange($event)">
+              <mat-option>ALL</mat-option>
+               <mat-option *ngFor="let place of placeOptions" [value]="place">{{
+                place
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+    </div>
+  </div>
 <div>
   <app-ppchart
     [XaxisLabel]="lineChart.XaxisLabel"
@@ -28,40 +33,3 @@
     [tooltipLabel]="pieChart.tooltipLabel"
   ></app-ppchart>
 </div>
-<!-- <div class="content">
-  <div class="row">
-    <div class="col-12">
-      <div class="card card-chart">
-        <div class="card-header ">
-          <div class="row">
-            <div class="col-sm-6 text-right">
-              <h2 class="card-title pull-left">Performance</h2>
-            </div>
-            <div class="col-sm-6"></div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="chart-area">
-            <canvas id="chartBig1"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12 text-right">
-      <div class="card card-chart">
-        <div class="card-header">
-          <h3 class="card-title pull-left">
-            Expenses
-          </h3>
-        </div>
-        <div class="card-body">
-          <div class="chart-area">
-            <canvas id="CountryChart"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
