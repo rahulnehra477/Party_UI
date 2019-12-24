@@ -1,0 +1,135 @@
+<div class="login-container">
+  <div class="login-content">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5 class=" title label">Registration</h5>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="RegisForm" (ngSubmit)="submitform()">
+              <div class="row">
+                <div class=" col-md-6">
+                  <div class=" form-group">
+                    <label class="label">FirstName*</label>
+                    <input type="text" class=" form-control" placeholder="firstname" formControlName="firstname">
+                    <div class="alert  alert-danger" *ngIf="RegisForm.get('firstname').hasError('required')&& RegisForm.get('firstname').touched">
+                     Firstname is required
+                  </div>
+                  </div>
+                </div>
+                <div class=" col-md-6">
+                  <div class=" form-group">
+                    <label class="label">LastName</label>
+                    <input type="text" class=" form-control" placeholder="lastname" formControlName="lastname">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label class="label"> Password </label>
+                  <input type="password" class=" form-control" placeholder="password" formControlName="password">
+                </div>
+              </div>
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label class="label"> EmpId* </label>
+                  <input type="number" class=" form-control" placeholder="empid" formControlName="empId">
+                  <div class="alert  alert-danger" *ngIf="RegisForm.get('empId').hasError('required')&& RegisForm.get('empId').touched">
+                    Empid is required
+                 </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label class="label"> Email* </label>
+                  <input type="text" class=" form-control" placeholder="email" formControlName="emailId">
+              <div class="alert  alert-danger" *ngIf="RegisForm.get('emailId').hasError('pattern')&& RegisForm.get('emailId').touched">
+                You must provide a <strong>Valid</strong> email
+             </div>
+                </div>
+              </div>
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label class="label"> Address* </label>
+                  <input type="text" class=" form-control" placeholder="address" formControlName="address">
+                  <mat-error *ngIf="errorHandling('address', 'required')">
+                    You must provide a <strong>address</strong>
+                </mat-error>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label class="label"> Smoke* </label>
+                  <p>
+                    <input type="radio" value="Yes" formControlName="smoke">Yes
+                    <input type="radio" value="No" formControlName="smoke">No
+                  </p>
+                </div>
+              </div>
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label class="label"> Drink* </label>
+                  <p>
+                    <input type="radio" value="Yes" formControlName="drink">Yes
+                    <input type="radio" value="No" formControlName="drink">No
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class=" col-md-4">
+                <div class=" form-group">
+                  <label class="label"> Are You Married* </label>
+                  <p>
+                    <input type="checkbox" formControlName="married">
+                  </p>
+                </div>
+              </div>
+              <div class=" col-md-4">
+                  <div class=" form-group">
+                    <label class="label"> Admin </label>
+                    <p>
+                      <input type="checkbox" formControlName="admin">
+                    </p>
+                  </div>
+                </div>
+              <div class=" col-md-4">
+                <div class=" form-group">
+                  <label class="label"> Food Habit* </label>
+                  <p>
+                    <input type="radio" value="Strict veg" formControlName="food">Strict Veg
+                    <input type="radio" value="veg" formControlName="food">Veg
+                    <input type="radio" value="Non Veg" formControlName="food">Non Veg
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class=" col-md-12">
+              <div class=" form-group">
+                <label class="label"> Upload Photo* </label>
+                    <div class="upload_file_container form-group">
+                       <span class="label"> Select file!</span>
+                        <input  class="form-control" type="file" name="profile"(change)="onFileSelected($event)"  class="picture" accept="image/*"/>
+                        <img id="blah" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
+                    </div>
+              </div>
+            </div>
+
+              <div class="card-footer text-center">
+                <button class=" btn btn-fill btn-danger" type="submit" [disabled]="!RegisForm.valid">Register</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

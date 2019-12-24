@@ -6,7 +6,7 @@ import { AddPartyExpenseDialogComponent } from "./add-party-expense-dialog/add-p
 @Component({
   selector: "app-tables",
   templateUrl: "tables.component.html",
-  styleUrls: ["./tables.component.css"]
+  styleUrls: ["./tables.component.scss"]
 })
 export class TablesComponent implements OnInit {
   displayedColumns: string[] = [
@@ -18,6 +18,7 @@ export class TablesComponent implements OnInit {
   ];
 
   isAdmin = true;
+  todaysdate:Date;
 
   dataSource: MatTableDataSource<any>;
 
@@ -27,6 +28,7 @@ export class TablesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.todaysdate=new Date();
     this.dashboardService.getUser().subscribe(parties => {
       console.log("parties:", parties);
       this.dataSource = new MatTableDataSource(parties);
