@@ -38,6 +38,7 @@ import { PPChartModule } from "src/app/ppchart/ppchart.module";
 import { RegistrationComponent } from "src/app/pages/registration/registration.component";
 import { UserService } from "src/app/user.service";
 import { DashboardDataResolverService } from "src/app/pages/dashboard/dashoboard-data-resolver";
+import { UserServices } from 'src/app/pages/user/user.services';
 // import { barComponent } from 'src/app/pages/bar/bar.component';
 
 @NgModule({
@@ -82,6 +83,7 @@ import { DashboardDataResolverService } from "src/app/pages/dashboard/dashoboard
     DashboardService,
     PlanPartyServices,
     UserService,
+    UserServices,
     DashboardDataResolverService
   ],
   entryComponents: [AddPartyExpenseDialogComponent]

@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/auth.service';
 declare interface RouteInfo {
   path: string;
   title: string;
-  rtlTitle: string;
+  //rtlTitle: string;
   icon: string;
   class: string;
 }
@@ -12,21 +12,21 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/dashboard",
     title: "Dashboard",
-    rtlTitle: "لوحة القيادة",
+   // rtlTitle: "لوحة القيادة",
     icon: "icon-chart-pie-36",
     class: ""
   },
   {
     path: "/plan-party",
     title: "Plan Party",
-    rtlTitle: "لوحة القيادة",
+    //rtlTitle: "لوحة القيادة",
     icon: "icon-istanbul",
     class: ""
   },
   {
     path: "/notifications",
     title: "Notifications",
-    rtlTitle: "إخطارات",
+    //rtlTitle: "إخطارات",
     icon: "icon-bell-55",
     class: ""
   },
@@ -34,31 +34,31 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/user",
     title: "User Profile",
-    rtlTitle: "ملف تعريفي للمستخدم",
+    //rtlTitle: "ملف تعريفي للمستخدم",
     icon: "icon-single-02",
     class: ""
   },
   {
     path: "/tables",
     title: "Table List",
-    rtlTitle: "قائمة الجدول",
+    //rtlTitle: "قائمة الجدول",
     icon: "icon-puzzle-10",
     class: ""
   },
   {
     path: "/typography",
     title: "Typography",
-    rtlTitle: "طباعة",
+    //rtlTitle: "طباعة",
     icon: "icon-align-center",
     class: ""
   },
-  {
-    path: "/rtl",
-    title: "RTL Support",
-    rtlTitle: "ار تي ال",
-    icon: "icon-world",
-    class: ""
-  }
+  // {
+  //   path: "/rtl",
+  //   title: "RTL Support",
+  //   rtlTitle: "ار تي ال",
+  //   icon: "icon-world",
+  //   class: ""
+  // }
 ];
 
 @Component({

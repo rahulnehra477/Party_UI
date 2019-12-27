@@ -69,7 +69,6 @@ export class PlanPartyComponent implements OnInit {
   onSelectAll(items: any) {
     console.log(items);
   }
-
   
   save(form:NgForm){
     console.log('Saving party info')
@@ -94,15 +93,7 @@ export class PlanPartyComponent implements OnInit {
     );
     
   }
-
-  
-
-
   OnEmployeeSelected(item : any){
     console.log(item);
   }
-
-
-  
-
 }
