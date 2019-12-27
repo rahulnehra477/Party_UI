@@ -1,10 +1,9 @@
 export interface PartyDetails {
-    party_title: string;
-    party_place: string;
-    partyDate: string;
-    projectId : string;
-    approverId : string;
-    empId : [];
-    userId : string;
-    date_time:Date;
-  }
+  party_title: string;
+  party_place: string;
+  projectId: string;
+  approverId: string;
+  empId: [];
+  userId: string;
+  partyDate: Date;
+}

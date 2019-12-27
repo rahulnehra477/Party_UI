@@ -10,7 +10,7 @@ export class AddPartyExpenseDialogComponent implements OnInit {
   expenseForm: FormGroup;
   submitted = false;
   constructor(private fb: FormBuilder) {}
-
+  
   ngOnInit() {
     this.expenseForm = this.fb.group({
       expense: ["", Validators.required]
@@ -26,5 +26,7 @@ export class AddPartyExpenseDialogComponent implements OnInit {
     }
 
     console.log("FORM DATA: ", this.expenseForm.value);
+
+
   }
 }

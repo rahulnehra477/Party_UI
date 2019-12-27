@@ -6,7 +6,7 @@ import { PartyDetails } from "../model/PartyDetails";
 
 @Injectable()
 export class PlanPartyServices{
-  userUrl:string='http://localhost:8102/party/user';
+  userUrl:string='http://localhost:8102/party/users';
   // projectUrl:string='http://localhost:8102/party/projectdetails/user/673912';
   // userUrl:string='http://localhost:3000/users';
   projectUrl:string='http://localhost:8102/party/projectdetails/user/673912';
