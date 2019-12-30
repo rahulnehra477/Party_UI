@@ -1,17 +1,16 @@
 
-<div class=" content">
+<p>Server with ID {{userObj.password}} . </p> 
+<div class="content">
   <div class=" row">
     <div class=" col-md-8">
       <div class=" card">
         <div class=" row">
           <div class=" card-header col-md-9"><h3 class=" title" style="margin-left: 2px;">Edit Profile</h3></div>
-           <!-- <div class=" card-header col-md-3"><button class=" btn btn-fill btn-danger" [routerLink]="['/regis']" >Add User</button></div>> -->
+           
       </div>
         <div class=" card-body">
+             
           <form>
-
-
-
             <div class=" row">
               <div class=" col-md-2">
                 <div class=" form-group">
@@ -21,7 +20,7 @@
                     disabled=""
                     placeholder="EmpId"
                     type="text"
-                    value='{userObj.password}'
+                    value={{userObj.empId}}
                   />
                 </div>
               </div>
@@ -32,73 +31,75 @@
                     class=" form-control"
                     placeholder="first name"
                     type="text"
-                    value="nitin"
+                    value={{userObj.first_name}}
                   />
                 </div>
               </div>
               <div class=" col-md-3">
+                <div class=" form-group">
+                  <label> Last Name </label>
+                  <input
+                    class=" form-control"
+                    placeholder="last name"
+                    type="text"
+                    value={{userObj.last_name}}
+                  />
+                </div>
+              </div>
+              <div class=" col-md-4">
                   <div class=" form-group">
-                    <label> Last Name </label>
+                    <label> Username </label>
                     <input
                       class=" form-control"
-                      placeholder="last name"
+                      placeholder="Username"
                       type="text"
-                      value="sharma"
+                      value={{userObj.username}}
                     />
                   </div>
                 </div>
-                <div class=" col-md-4">
-                    <div class=" form-group">
-                      <label> Username </label>
-                      <input
-                        class=" form-control"
-                        placeholder="Username"
-                        type="text"
-                        value="Nitsharma"
-                      />
-                    </div>
-                  </div>
             </div>
 
 
+
             <div class=" row">
-                <div class=" col-md-3">
-                  <div class=" form-group">
-                    <label> Designation </label>
-                    <input
-                      class=" form-control"
-                      placeholder="Designation"
-                      type="text"
-                      value="HR"
-                    />
-                  </div>
-                </div>
-                <div class=" col-md-3">
-                  <div class=" form-group">
-                    <label> password </label>
-                    <input
-                      class=" form-control"
-                      placeholder="password"
-                      type="password"
-                      value="121344"
-                    />
-                  </div>
-                </div>
-                <div class=" col-md-6">
-                  <div class=" form-group">
-                    <label for="exampleInputEmail1"> Email address </label>
-                    <input
-                      class=" form-control"
-                      placeholder="mike@email.com"
-                      type="email"
-                    />
-                  </div>
+              <div class=" col-md-3">
+                <div class=" form-group">
+                  <label> Designation </label>
+                  <input
+                    class=" form-control"
+                    placeholder="Designation"
+                    type="text"
+                    value={{userObj.designation}}
+                  />
                 </div>
               </div>
+              <div class=" col-md-3">
+                <div class=" form-group">
+                  <label> password </label>
+                  <input
+                    class=" form-control"
+                    placeholder="password"
+                    type="text"
+                    value={{userObj.password}}
+                  />
+                </div>
+              </div>
+              <div class=" col-md-6">
+                <div class=" form-group">
+                  <label for="exampleInputEmail1"> Email address </label>
+                  <input
+                    class=" form-control"
+                    type="email"
+                    value={{userObj.emailId}}
+                  />
+                </div>
+              </div>
+            </div>
 
-            
 
-            
+
+
+
             <div class=" row">
               <div class=" col-md-12">
                 <div class=" form-group">
@@ -107,14 +108,11 @@
                     class=" form-control"
                     placeholder="Home Address"
                     type="text"
-                    value="My address"
+                    value={{userObj.address}}
                   />
                 </div>
               </div>
             </div>
-
-
-
 
             <div class=" row">
               <div class=" col-md-3 pr-md-1">
@@ -124,6 +122,7 @@
                     class=" form-control"
                     placeholder="City"
                     type="text"
+                    value={{userObj.city}}
                   />
                 </div>
               </div>
@@ -134,6 +133,7 @@
                       class=" form-control"
                       placeholder="State"
                       type="text"
+                      value={{userObj.state}}
                     />
                   </div>
                 </div>
@@ -144,6 +144,7 @@
                     class=" form-control"
                     placeholder="Country"
                     type="text"
+                    value={{userObj.country}}
                   />
                 </div>
               </div>
@@ -154,155 +155,123 @@
                       class=" form-control"
                       placeholder="ZIP Code"
                       type="number"
+                      value={{userObj.pincode}}
                     />
                   </div>
                 </div>
             </div>
 
+
             <div class=" row">
-                <div class=" col-md-5">
+              <div class=" col-md-5">
+                <div class=" form-group">
+                  <label> Location Preference </label>
+                  <input
+                    class=" form-control"
+                    placeholder="Location"
+                    type="text"
+                    value={{userObj.location_pref}}
+                  />
+                </div>
+              </div>
+              <div class=" col-md-4">
                   <div class=" form-group">
-                    <label> Location Preference </label>
+                    <label> Restaurant Preference </label>
                     <input
                       class=" form-control"
-                      placeholder="Location"
+                      placeholder="Restaurant"
                       type="text"
+                      value={{userObj.restaurant_pref}}
                     />
                   </div>
                 </div>
-                <div class=" col-md-4">
+                <div class=" col-md-3">
                     <div class=" form-group">
-                      <label> Restaurant Preference </label>
+                      <label> Budget </label>
                       <input
                         class=" form-control"
-                        placeholder="Restaurant"
-                        type="text"
+                        placeholder="Maximum Budget"
+                        type="number"
+                        value={{userObj.budget}}
                       />
                     </div>
                   </div>
-                  <div class=" col-md-3">
-                      <div class=" form-group">
-                        <label> Budget </label>
-                        <input
-                          class=" form-control"
-                          placeholder="Maximum Budget"
-                          type="number"
-                        />
-                      </div>
-                    </div>
-              </div>
-
-
-              <div class=" row">
-                  <div class=" col-md-3">
-                      <div class=" form-group">
-                        <label class="label"> Food Habit* </label>
-                        <p>
-                          <input type="radio" value="Strict veg" formControlName="food">Strict Veg
-                          <input type="radio" value="veg" formControlName="food">Veg
-                          <input type="radio" value="Non Veg" formControlName="food">Non Veg
-                        </p>
-                      </div>
-                    </div>
-                  <div class=" col-md-3">
-                      <div class=" form-group">
-                          <label class="label"> Drink </label>
-                          <p>
-                            <input type="radio" value="Yes" formControlName="drink">Yes
-                            <input type="radio" value="No" formControlName="drink">No
-                          </p>
-                        </div>
-                  </div>
-                  <div class=" col-md-3">
-                      <div class=" form-group">
-                          <label class="label"> Smoke </label>
-                          <p>
-                            <input type="radio" value="Yes" formControlName="drink">Yes
-                            <input type="radio" value="No" formControlName="drink">No
-                          </p>
-                        </div>
-                  </div>
-                  <div class=" col-md-3">
-                      <div class=" form-group">
-                          <label class="label"> Marital Status </label>
-                          <p>
-                            <input type="radio" value="Yes" formControlName="married">Yes
-                            <input type="radio" value="No" formControlName="Unmarried">No
-                          </p>
-                        </div>
-                    </div>
-                  </div>
+            </div>
 
 
             <div class=" row">
-              <div class=" col-md-12">
-                <div class=" form-group">
-                  <label> About Me </label>
-                  <textarea
-                    class=" form-control"
-                    cols="80"
-                    placeholder="Here can be your description"
-                    rows="4"
-                    value="Mike"
-                  >
-Hello This is About Me :
-</textarea
-                  >
+              <div class=" col-md-3">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{userObj.food_pref}}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Veg</button>
+                    <button ngbDropdownItem>Non Veg</button>
+                    <button ngbDropdownItem>Strictly Veg</button>
+                  </div>
                 </div>
               </div>
+              <!-- <div class=" col-md-3">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{userObj.food_pref}}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Veg</button>
+                    <button ngbDropdownItem>Non Veg</button>
+                    <button ngbDropdownItem>Strictly Veg</button>
+                  </div>
+                </div>
+              </div>
+              <div class=" col-md-3">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{userObj.food_pref}}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Veg</button>
+                    <button ngbDropdownItem>Non Veg</button>
+                    <button ngbDropdownItem>Strictly Veg</button>
+                  </div>
+                </div>
+              </div>
+              <div class=" col-md-3">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{userObj.food_pref}}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Veg</button>
+                    <button ngbDropdownItem>Non Veg</button>
+                    <button ngbDropdownItem>Strictly Veg</button>
+                  </div>
+                </div>
+              </div> -->
             </div>
+
+
+
+              <div class=" row">
+                <div class=" col-md-12">
+                  <div class=" form-group">
+                    <label> About Me </label>
+                    <textarea
+                      class=" form-control"
+                      cols="80"
+                      placeholder="Here can be your description"
+                      rows="4"
+                      value={{userObj.about}}
+                    >
+  Hello This is About Me :
+  </textarea
+                    >
+                  </div>
+                </div>
+              </div>
+
+
+
           </form>
+
         </div>
         <div class=" card-footer">
           <button class=" btn btn-fill btn-danger" type="submit">Save</button>
         </div>
       </div>
     </div>
-    <div class=" col-md-4">
-      <div class=" card card-user">
-        <div class=" card-body">
-          <p class=" card-text"></p>
-          <div class=" author">
-            <div class=" block block-one"></div>
-            <div class=" block block-two"></div>
-            <div class=" block block-three"></div>
-            <div class=" block block-four"></div>
-            <a href="javascript:void(0)">
-              <img alt="..." class=" avatar" src="assets/img/emilyz.jpg" />
 
-              <h5 class=" title">Mike Andrew</h5>
-            </a>
-            <p class=" description">Ceo/Co-Founder</p>
-          </div>
-          <div class=" card-description">
-            Do not be scared of the truth because we need to restart the human
-            foundation in truth And I love you like Kanye loves Kanye I love
-            Rick Owens’ bed design but the back is...
-          </div>
-        </div>
-        <div class=" card-footer">
-          <div class=" button-container">
-            <button
-              class=" btn btn-icon btn-round btn-facebook"
-              href="javascript:void(0)"
-            >
-              <i class=" fab fa-facebook"> </i>
-            </button>
-            <button
-              class=" btn btn-icon btn-round btn-twitter"
-              href="javascript:void(0)"
-            >
-              <i class=" fab fa-twitter"> </i>
-            </button>
-            <button
-              class=" btn btn-icon btn-round btn-google"
-              href="javascript:void(0)"
-            >
-              <i class=" fab fa-google-plus"> </i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>

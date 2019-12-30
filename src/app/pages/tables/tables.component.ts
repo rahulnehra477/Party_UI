@@ -18,6 +18,7 @@ export class TablesComponent implements OnInit {
     "date_time"
   ];
 
+  serverID: number = 10;  
   isAdmin = true;
   todaysdate: Date;
 
