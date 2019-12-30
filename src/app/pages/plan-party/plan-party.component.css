@@ -25,4 +25,9 @@
   color: black;
 }
 
+.bodyLocation{
+  left:-150px;
+  position: absolute;
+}
+
 

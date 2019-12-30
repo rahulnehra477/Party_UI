@@ -31,6 +31,8 @@ export class PlanPartyComponent implements OnInit {
   dropdownSettings = {};
   userDropdownSettings = {};
   approverIdSettings = {};
+
+
   ngOnInit() {
     console.log('Initializing');
     this.planPartyService.getProjectList().subscribe(
@@ -49,7 +51,7 @@ export class PlanPartyComponent implements OnInit {
     this.userDropdownSettings = {
       singleSelection: false,
       idField: 'empId',
-      textField: 'name',
+      textField: 'username',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,

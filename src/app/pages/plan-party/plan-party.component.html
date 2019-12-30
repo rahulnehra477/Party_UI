@@ -1,115 +1,87 @@
-<div class="login-container">
-    <div class="login-content">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header">
-              <h5 class=" title label">Plan Party</h5>
-            </div>
-            <div class="card-body">
-              <form [formGroup]="RegisForm" (ngSubmit)="submitform()">
+<div class="plan-container">
+  <div class="content bodyLocation">
+    <div class="row">
+      <div class=" col-md-10">
+        <div class=" card" >
+          <div class="card-header"><h3 class=" title">Plan Party</h3></div>
+          <div class="card-body">
+            <form (ngSubmit)="save(f)" #f="ngForm">
                 
-                
-                  <div class=" row">
-                      <div class=" col-md-12">
-                        <div class=" form-group">
-                          <label> About Me </label>
-                          <textarea
-                            class=" form-control"
-                            style="color:black; background-color: white;"
-                            cols="100"
-                            placeholder="Here can be your description"
-                            rows="2"
-                            value=""
-                          >
-                          </textarea>
-                        </div>
-                      </div>
-                    </div>
-
-
-                
-                <div class="row">
+              <div class=" row">
                 <div class=" col-md-12">
-                  <div class=" form-group">
-                    <label class="label"> Project</label>
+                  <div class=" form-group">                    
+                    <label for="selectProject"> Project: </label>                    
                     <select id="selectProject" 
-                  ngModel 
-                  name="projectId" 
-                  class="form-control" 
-                  style="color:black; background-color: white;"
-                  placeholder="Select Project">
-                  <option *ngFor="let project of projectList" [value]="project.projectId">
-                    {{project.projectName}}</option>
-                    </select>
-                    
-
+                    ngModel 
+                    name="projectId" 
+                    style="color:black; background-color: white;"
+                    required
+                    class="form-control" 
+                    placeholder="Select Project">
+                    <option *ngFor="let project of projectList" [value]="project.projectId">
+                      {{project.projectName}}</option>
+                      </select>
+                      <div *ngIf="submitted && f.projectId.errors" class="invalid-feedback">
+                        <div *ngIf="f.projectId.errors.required">Project Selection is required</div>
+                    </div>
                   </div>
-                </div>
+                </div>                
+              </div>
+
+              <div class=" row">                
                 <div class=" col-md-12">
                   <div class=" form-group">
-                    <label class="label"> Approver Id </label>
+                    <label> ApproverId: </label>
                     <select id="approverId" 
-                  ngModel 
-                  name="approverId" 
-                  class="form-control" 
-                  style="color:black; background-color: white;"
-                  placeholder="ApproverId">
-                    <option *ngFor="let user of userList" [value]="user.empId">
-                    {{user.name}}</option>
-                  </select>
+                    ngModel 
+                    name="approverId" 
+                    style="color:black; background-color: white;"
+                    class="form-control" 
+                    placeholder="ApproverId">
+                      <option *ngFor="let user of userList" [value]="user.empId">
+                      {{user.username}}</option>
+                    </select>
                   </div>
                 </div>
               </div>
 
               <div class=" row">
-                <div class=" col-md-12">
-                  <div class=" form-group">
-                    <label> Party Venue </label>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label> Party Place: </label>
                     <input
-                      class=" form-control"
-                      style="color:black; background-color: white;"
-                      placeholder="Venue"
-                      type="text"
-                      value="Venue"
+                      class=" form-control text"
+                      placeholder="Party Place"
+                      type="text"     
+                      ngModel   
+                      name="party_place"           
                     />
                   </div>
                 </div>
               </div>
-               
-              <div class="row">
+              <div class=" row">
                 <div class=" col-md-12">
-                  <div class=" form-group">
-                    <label class="label"> Attendee </label>
-                    <input
-                      class=" form-control"
-                      style="color:black; background-color: white;"
-                      placeholder="attendee"
-                      type="text"
-                      value="attendees"
-                    />
-                    <!-- <ng-multiselect-dropdown
-                    id="attendee"  
-                    style="color:black; background-color: white;" 
-                    name="empId"   
-                    ngModel      
-                    [placeholder]="'Attendee'"
-                    [data]="userList"
-                    [settings]="userDropdownSettings"
-                    (onSelect)="onItemSelect($event)"
-                    (onSelectAll)="onSelectAll($event)"
-                    >
-                  </ng-multiselect-dropdown> -->
+                  <div class=" form-group ">
+                    <label> Attendee: </label>
+                    <ng-multiselect-dropdown
+                      id="attendee"  
+                      style="color: white;" 
+                      name="empId"   
+                      ngModel      
+                      [placeholder]="'Attendee'"
+                      [data]="userList"
+                      [settings]="userDropdownSettings"
+                      (onSelect)="onItemSelect($event)"
+                      (onSelectAll)="onSelectAll($event)"
+                      >
+                    </ng-multiselect-dropdown>
                   </div>
                 </div>
               </div>
-              
-
-
               <div class="row">
                 <div class=" col-md-12">
                   <div class=" form-group">
-                    <label class="label"> Date and Time </label>
+                    <label class="label"> Date and Time&nbsp;&nbsp; </label>
                     <input [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" 
                     placeholder="Date Time"
                    ngModel
@@ -118,61 +90,8 @@
                   <owl-date-time [pickerMode]="'dialog'" #dt5></owl-date-time>
                 </div>
               </div>
-              
-              
-              
-             
-  
-                <div class="card-footer text-center">
-                  <button class=" btn btn-fill btn-danger" type="submit" [disabled]="!RegisForm.valid">Register</button>
-                </div>
-              </form>
-            </div>
-  
-          </div>
-        </div>
-  
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
- <div class="plan-container">
-<div class="content">
-  <div class="row">
-    <div class=" col-md-10">
-      <div class=" card" style="background: transparent;">
-        <div class="card-header"><h3 class=" title">Plan Party</h3></div>
-        <div class="card-body">
-          <form (ngSubmit)="save(f)" #f="ngForm">
-              <div class=" row">
+                
+                <div class=" row">
                   <div class=" col-md-12">
                     <div class=" form-group">
                       <label> About Party </label>
@@ -188,226 +107,17 @@
                     </div>
                   </div>
                 </div>
-            <div class=" row">              
+               
               
-              <div class=" col-md-12">
-                <div class=" form-group">                    
-                  <label for="selectProject"> Select Project: </label>
-                  
-                  <select id="selectProject" 
-                  ngModel 
-                  name="projectId" 
-                  style="color:black; background-color: white;"
-                  class="form-control" 
-                  placeholder="Select Project">
-                  <option *ngFor="let project of projectList" [value]="project.projectId">
-                    {{project.projectName}}</option>
-                    </select>
-                </div>
-              </div>
-
-              <div class="col-md-12">
-                  <div class="form-group">
-                    <label> Party Place: </label>
-                    <input
-                      class=" form-control text"
-                      placeholder="Party Place"
-                      type="text"     
-                      ngModel   
-                      name="party_place"           
-                    />
-                  </div>
-                </div>
-            </div>
-            <div class=" row">
               
-              <div class=" col-md-12">
-                <div class=" form-group">
-                  <label> ApproverId: </label>
-                  <select id="approverId" 
-                  ngModel 
-                  name="approverId" 
-                  style="color:black; background-color: white;"
-                  class="form-control" 
-                  placeholder="ApproverId">
-                    <option *ngFor="let user of userList" [value]="user.empId">
-                    {{user.name}}</option>
-                  </select>
-                </div>
+              <div class="card-footer">
+                  <button class=" btn btn-fill btn-danger" type="submit">Save</button>
               </div>
-            </div>
-            <div class=" row">
-              <div class=" col-md-12">
-                <div class=" form-group ">
-                  <label> Attendee: </label>
-                  <ng-multiselect-dropdown
-                    id="attendee"  
-                    style="color: white;" 
-                    name="empId"   
-                    ngModel      
-                    [placeholder]="'Attendee'"
-                    [data]="userList"
-                    [settings]="userDropdownSettings"
-                    (onSelect)="onItemSelect($event)"
-                    (onSelectAll)="onSelectAll($event)"
-                    >
-                  </ng-multiselect-dropdown>
-                </div>
-              </div>
-            </div>
-            <div class=" row">
-              
-                <div class=" form-group">
-                    <label class="col-md-12" class="font-weight-bold">
-                
-                        Date Time:
-                        <div class="col-md-12">
-                        <input [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" 
-                          placeholder="Date Time"
-                         ngModel
-                         name="partyDate">
-                         </div>
-                          <owl-date-time [pickerMode]="'dialog'" #dt5></owl-date-time>
-                          
-                      </label>
-               </div>
-                
-                
-              </div>
-              
-             
-            
-            
-            <div class="card-footer">
-                <button class=" btn btn-fill btn-danger" type="submit">Save</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-   </div>
-</div>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="save(f)" #f="ngForm">
-        <div class="form-group">
-        <div>
-          <label for="partyTitle" class="col-md-12 col-form-label text-md-left" class="font-weight-bold" >Party Title: </label>
-          <div class="col-md-12">
-          <input type="text" id="partyTitle" name="party_title" class="form-control" ngModel placeholder="Party Title"/>
-        </div>
-        </div>
-
-        <div>
-          <label for="selectProject" class="col-md-12 col-form-label text-md-left" class="font-weight-bold">Select Project: </label>
-          <div class="col-md-12">
-          <select id="selectProject" 
-          ngModel 
-          name="projectId" 
-          class="form-control" 
-          placeholder="Select Project">
-              <option *ngFor="let project of projectList" [value]="project.projectId">
-              {{project.projectName}}</option>
-            </select>
-            </div>
-        </div>
-
-         <div>
-          <label for="partyPlace" class="col-md-12 col-form-label text-md-left" class="font-weight-bold">Party Place: </label>
-          <div class="col-md-12">
-          <input type="text" id="partyPlace" name="party_place" class="form-control" ngModel placeholder="Party Place"/>
-          </div>
-        </div>
-
-        <div>
-          <label for="approverId" class="col-md-12 col-form-label text-md-left" class="font-weight-bold">ApproverId: </label>
-          <div class="col-md-12">
-          <select id="approverId" 
-          ngModel 
-          name="approverId" 
-          class="form-control" 
-          placeholder="ApproverId">
-            <option *ngFor="let user of userList" [value]="user.empId">
-            {{user.name}}</option>
-          </select>
-          </div>
-         
-        </div> 
-        <div>
-          <label for="attendee" class="col-md-12 col-form-label text-md-left" class="font-weight-bold">Attendee: </label>
-          <div class="col-md-12">
-          <ng-multiselect-dropdown
-            id="attendee"   
-            name="empId"   
-            ngModel      
-            [placeholder]="'Attendee'"
-            [data]="userList"
-            [settings]="userDropdownSettings"
-            (onSelect)="onItemSelect($event)"
-            (onSelectAll)="onSelectAll($event)"
-            >
-          </ng-multiselect-dropdown>
-          </div>
-        </div> 
-        <div >
-            <label class="col-md-12 col-form-label text-md-left" class="font-weight-bold">
-                
-              Date Time:
-              <div class="col-md-12">
-              <input [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" 
-                placeholder="Date Time"
-               ngModel
-               name="partyDate">
-               </div>
-                <owl-date-time [pickerMode]="'dialog'" #dt5></owl-date-time>
-                
-            </label>
-
-          
-          
-            <div class="col-md-12">
-          <input type="hidden" id="userId" ngModel name="userId">
-          </div>
-        </div>
-        
-        <div class="col-md-12">
-        <button type="submit" class="btn btn-success">SAVE</button>
-          </div>
-      
-      </div>
-      </form>
-
-    </div>
-
+     </div>
   </div>
-</div> --> 
+  </div>
+  
