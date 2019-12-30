@@ -85,8 +85,12 @@ export class PlanPartyComponent implements OnInit {
     .subscribe(
       (response => {
         console.log(response);
+        this.userDropdownSettings = {          
+          itemsShowLimit: 0
+        };
         this.toastr.success('Saved Successfully');
         form.reset();
+        
         }),
       (error) => {
         console.log(error);

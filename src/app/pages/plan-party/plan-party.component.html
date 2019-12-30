@@ -20,10 +20,7 @@
                     placeholder="Select Project">
                     <option *ngFor="let project of projectList" [value]="project.projectId">
                       {{project.projectName}}</option>
-                      </select>
-                      <div *ngIf="submitted && f.projectId.errors" class="invalid-feedback">
-                        <div *ngIf="f.projectId.errors.required">Project Selection is required</div>
-                    </div>
+                      </select>                    
                   </div>
                 </div>                
               </div>
