@@ -1,5 +1,3 @@
-
-
 <div class="content">
   <div class=" row">
     <div class=" col-md-8">
@@ -201,46 +199,74 @@
 
             <div class=" row">
               <div class=" col-md-3">
-                <div ngbDropdown class="d-inline-block">
-                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{userObj.food_pref}}</button>
-                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button ngbDropdownItem>Veg</button>
-                    <button ngbDropdownItem>Non Veg</button>
-                    <button ngbDropdownItem>Strictly Veg</button>
+                 <div class=" form-group ">
+                      <label> Food Preference: </label>
+                      <ng-multiselect-dropdown
+                        id="food_pref"  
+                        style="color: white;" 
+                        name="food_pref"   
+                        ngModel      
+                        [placeholder]="food"
+                        [data]="dropdownList"
+                        [settings]="userDropdownSettings"
+                        (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"
+                        >
+                      </ng-multiselect-dropdown>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <!-- <div class=" col-md-3">
-                <div ngbDropdown class="d-inline-block">
-                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{userObj.food_pref}}</button>
-                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button ngbDropdownItem>Veg</button>
-                    <button ngbDropdownItem>Non Veg</button>
-                    <button ngbDropdownItem>Strictly Veg</button>
-                  </div>
-                </div>
-              </div>
               <div class=" col-md-3">
-                <div ngbDropdown class="d-inline-block">
-                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{userObj.food_pref}}</button>
-                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button ngbDropdownItem>Veg</button>
-                    <button ngbDropdownItem>Non Veg</button>
-                    <button ngbDropdownItem>Strictly Veg</button>
-                  </div>
+                <div class=" form-group ">
+                  <label> Drink Preference: </label>
+                  <ng-multiselect-dropdown
+                    id="drink"  
+                    style="color: white;" 
+                    name="drink"   
+                    ngModel      
+                    [placeholder]="drink"
+                    [data]="dropdownList1"
+                    [settings]="userDropdownSettings1"
+                    (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    >
+                  </ng-multiselect-dropdown>
                 </div>
               </div>
-              <div class=" col-md-3">
-                <div ngbDropdown class="d-inline-block">
-                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{userObj.food_pref}}</button>
-                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button ngbDropdownItem>Veg</button>
-                    <button ngbDropdownItem>Non Veg</button>
-                    <button ngbDropdownItem>Strictly Veg</button>
-                  </div>
+          <div class=" col-md-3">
+              <div class=" form-group ">
+                  <label> Smoke Preference: </label>
+                  <ng-multiselect-dropdown
+                    id="smoke"  
+                    style="color: white;" 
+                    name="smoke"   
+                    ngModel      
+                    [placeholder]="smoke"
+                    [data]="dropdownList2"
+                    [settings]="userDropdownSettings2"
+                    (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    >
+                  </ng-multiselect-dropdown>
                 </div>
-              </div> -->
+          </div>
+          <div class=" col-md-3">
+            <div class=" form-group ">
+              <label> Marital Status : </label>
+              <ng-multiselect-dropdown
+                id="status"  
+                style="color: white;" 
+                name="marital_status"   
+                ngModel      
+                [placeholder]="status"
+                [data]="dropdownList3"
+                [settings]="userDropdownSettings3"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                >
+              </ng-multiselect-dropdown>
             </div>
+          </div>
+        </div>
 
 
 

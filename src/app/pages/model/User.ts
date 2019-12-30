@@ -3,4 +3,8 @@ export interface User {
     name : string;
     password : string;
     emailId : string;
+    food_pref : string;
+    drink : string;
+    smoke : string;
+    marital_status : string;
   }
