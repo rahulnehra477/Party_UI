@@ -6,6 +6,7 @@ export const CONSTANTS = {
   PARTY_DETAILS: "/party/partydetail",
   PARTY_COUNT: "/party/partydetail/getPartyCount",
   EXPENSE_COUNT: "/party/partydetail/getTotalExpense",
+  GET_USER: "/party/user/",
   ALL: "ALL",
 
   //Local machine

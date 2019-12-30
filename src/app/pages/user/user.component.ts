@@ -9,7 +9,7 @@ import { User } from '../model/User';
 })
 export class UserComponent implements OnInit {
     
- serverID: number = 10; 
+ 
   constructor(private userService: UserServices) {}
 
   userObj : User;
