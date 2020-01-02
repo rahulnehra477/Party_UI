@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { User } from "../model/User";
-import { PlanPartyServices } from "../plan-party/plan-party.services";
-import Chart from "chart.js";
 import { CHART_TYPE } from "../model/chartTypeEnum";
 import { Router, ActivatedRoute } from "@angular/router";
 import { DashboardService } from "./dashboard.service";
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: "app-dashboard",
@@ -32,7 +31,7 @@ export class DashboardComponent {
   placeOptions: string[];
 
   constructor(
-    private planPartyService: PlanPartyServices,
+    private userService: UserService,
     private route: ActivatedRoute,
     private dashboardService: DashboardService
   ) {
@@ -51,7 +50,7 @@ export class DashboardComponent {
       this.placeOptions = Object.keys(this.partyCountList);
     });
 
-    this.planPartyService.getUserList().subscribe((response: User[]) => {
+    this.userService.getUserList().subscribe((response: User[]) => {
       this.userList = response;
     });
 

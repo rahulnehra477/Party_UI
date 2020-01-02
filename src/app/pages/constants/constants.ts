@@ -1,6 +1,6 @@
 export const CONSTANTS = {
   // Nitin's machine
-  BASE_URL: "http://10.224.21.236:",
+  BASE_URL: "http://10.224.25.115:",
   PORT: 8102,
   LOGIN: "/party/login",
   PARTY_DETAILS: "/party/partydetail",
@@ -8,6 +8,7 @@ export const CONSTANTS = {
   EXPENSE_COUNT: "/party/partydetail/getTotalExpense",
   GET_USER: "/party/user/",
   UPDATE_USER: "/party/user/updateUser",
+  SAVE_EXPENSE: "/party/partydetail/expense",
   ALL: "ALL",
 
   //Local machine

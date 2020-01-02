@@ -1,8 +1,24 @@
 <div class="box-container">
-  <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()" style="height: 550px;">
     <h2 mat-dialog-title>Add Expense Form</h2>
     <mat-dialog-content class="mat-typography">
-      <div class="container">
+      <div class="container" style="height: 450px;">
+        <div class="form-group ">
+          <label for="attendee"> Attendee: </label>
+          <ng-multiselect-dropdown
+            id="attendee"
+            [placeholder]="'custom placeholder'"
+            [data]="userList"
+            formControlName="attendee"
+            [(ngModel)]="selectedUserList"
+            [settings]="userDropdownSettings"
+            (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+            >
+          </ng-multiselect-dropdown>
+        </div>
+        <!-- [ngModelOptions]="{standalone: true}" -->
+
         <div class="form-group">
           <label for="expense">Add Expense</label>
           <input
@@ -10,12 +26,20 @@
             class="form-control"
             id="expense"
             placeholder="Enter Expense"
+            [(ngModel)]="data.dataKey.expense"
             formControlName="expense"
             [ngClass]="{
               'is-invalid': submitted && expenseForm.controls.expense.errors
             }"
           />
+          <mat-error *ngIf="expenseForm.controls.expense.hasError('required')" class="invalid-feedback">
+            Please enter Expense
+          </mat-error>
         </div>
+
+        
+
+        
         <!-- </form> -->
       </div>
     </mat-dialog-content>

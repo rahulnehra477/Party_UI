@@ -32,7 +32,7 @@
                     (click)="$event.stopPropagation()"
                   >
                     <ng-container *ngIf="isAdmin; else user">
-                      <a (click)="onAdd(element)" class="hoveraffect" >
+                      <a (click)="onAdd(element)" class="hoveraffect" style="text-decoration: underline !important;">
                         {{ element.party_title }}
                       </a>
                     </ng-container>

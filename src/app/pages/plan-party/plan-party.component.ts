@@ -7,6 +7,8 @@ import { User } from '../model/User';
 import { AuthService } from 'src/app/auth.service';
 // import * as XLSX from 'ts-xlsx';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/user.service';
+
 
 @Component({
   selector: 'app-plan-party',
@@ -20,7 +22,10 @@ export class PlanPartyComponent implements OnInit {
   attendance='';
   time='';
   
-  constructor(private planPartyService:PlanPartyServices, private authService:AuthService, private toastr: ToastrService){
+  constructor(private planPartyService:PlanPartyServices, 
+    private authService:AuthService, 
+    private toastr: ToastrService, 
+    private userService: UserService){
     console.log("inside party constructor"+this.authService.authUser);
   }
   
@@ -42,7 +47,7 @@ export class PlanPartyComponent implements OnInit {
       }
     );
 
-    this.planPartyService.getUserList().subscribe(
+    this.userService.getUserList().subscribe(
         (response : User[])  => {
         console.log(response);
         this.userList = response;
@@ -74,12 +79,8 @@ export class PlanPartyComponent implements OnInit {
   
   save(form:NgForm){
     console.log('Saving party info')
-    let tempVar = form.value.empId;
-    form.value.empId = [];
-    tempVar.forEach(function (value) {
-      form.value.empId.push(value.empId);
-      
-  });
+    form.value.empId = this.userService.extractEmpId(form.value.empId);
+  
   form.value.userId = this.authService.authUser;
     this.planPartyService.savePlanParty(form.value)
     .subscribe(
@@ -102,4 +103,6 @@ export class PlanPartyComponent implements OnInit {
   OnEmployeeSelected(item : any){
     console.log(item);
   }
+
+ 
 }

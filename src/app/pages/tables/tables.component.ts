@@ -18,7 +18,7 @@ export class TablesComponent implements OnInit {
     "date_time"
   ];
 
-
+  data = [];
   isAdmin = true;
   todaysdate: Date;
 
@@ -39,14 +39,18 @@ export class TablesComponent implements OnInit {
     });
   }
 
-  onAdd(data: any) {
+  onAdd(data: any) {    
+    this.data = data;
     this.openDialog();
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(AddPartyExpenseDialogComponent, {
-      height: "400px",
-      width: "600px"
+      height: "700px",
+      width: "600px",
+      data: {
+        dataKey: this.data
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
