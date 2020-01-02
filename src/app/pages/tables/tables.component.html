@@ -1,6 +1,6 @@
 
 <div class=" content">
-  <div class=" row">
+  <div class=" row" >
     <div class=" col-md-12">
       <div class=" card card-plain">
         <div class=" card-header">
@@ -8,7 +8,7 @@
           <p class=" category">Details of All Parties</p>
         </div>
         <div class=" card-body">
-          <div class=" table-responsive">
+          <div class=" table-responsive" >
             <div class="form-group">
               <input
                 class="form-control"
@@ -23,7 +23,7 @@
                 class="table table-striped"
               >
                 <ng-container matColumnDef="party_title">
-                  <th mat-header-cell *matHeaderCellDef>
+                  <th mat-header-cell *matHeaderCellDef >
                     PARTY TITLE
                   </th>
                   <td
@@ -32,13 +32,16 @@
                     (click)="$event.stopPropagation()"
                   >
                     <ng-container *ngIf="isAdmin; else user">
-                      <a (click)="onAdd(element)" class="hoveraffect">
+                      <a (click)="onAdd(element)" class="hoveraffect" >
                         {{ element.party_title }}
                       </a>
                     </ng-container>
 
                     <ng-template #user>
-                      <div>
+                      <div [ngClass]="{
+                        green: todaysdate < element.partyDate,
+                        yellow: todaysdate > element.partyDate
+                      }">
                         {{ element.party_title }}
                       </div>
                     </ng-template>
@@ -50,7 +53,12 @@
                     PROJECT
                   </th>
                   <td mat-cell *matCellDef="let element">
+                    <div [ngClass]="{
+                      green: todaysdate < element.partyDate,
+                      yellow: todaysdate > element.partyDate
+                    }"> 
                     {{ element.projectId }}
+                  </div>
                   </td>
                 </ng-container>
 
@@ -59,14 +67,24 @@
                     PARTY PLACE
                   </th>
                   <td mat-cell *matCellDef="let element">
+                    <div [ngClass]="{
+                      green: todaysdate < element.partyDate,
+                      yellow: todaysdate > element.partyDate
+                    }"> 
                     {{ element.party_place }}
+                  </div>
                   </td>
                 </ng-container>
 
                 <ng-container matColumnDef="approved_by">
                   <th mat-header-cell *matHeaderCellDef>APPROVED BY</th>
                   <td mat-cell *matCellDef="let element">
+                    <div [ngClass]="{
+                      green: todaysdate < element.partyDate,
+                      yellow: todaysdate > element.partyDate
+                    }">
                     {{ element.approverId }}
+                  </div>
                   </td>
                 </ng-container>
 

@@ -8,17 +8,19 @@
       </div>
         <div class=" card-body">
              
-          <form>
+          <form (ngSubmit)="save(f)" #f="ngForm">
             <div class=" row">
               <div class=" col-md-2">
                 <div class=" form-group">
-                  <label> Employee Id </label>
+                  <label for="empId" > Employee Id </label>
                   <input
-                    class=" form-control"
-                    disabled=""
-                    placeholder="EmpId"
+                    id="empId"
+                    ngModel
+                    name="empId" 
+                    class="form-control"
                     type="text"
-                    value={{userObj.empId}}
+                    [(ngModel)]="userObj.empId"
+                    
                   />
                 </div>
               </div>
@@ -27,9 +29,11 @@
                   <label> First Name </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="first_name" 
                     placeholder="first name"
                     type="text"
-                    value={{userObj.first_name}}
+                    [(ngModel)]=userObj.first_name
                   />
                 </div>
               </div>
@@ -38,9 +42,11 @@
                   <label> Last Name </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="last_name" 
                     placeholder="last name"
                     type="text"
-                    value={{userObj.last_name}}
+                    [(ngModel)]=userObj.last_name
                   />
                 </div>
               </div>
@@ -49,9 +55,11 @@
                     <label> Username </label>
                     <input
                       class=" form-control"
+                      ngModel
+                      name="username" 
                       placeholder="Username"
                       type="text"
-                      value={{userObj.username}}
+                      [(ngModel)]=userObj.username
                     />
                   </div>
                 </div>
@@ -65,9 +73,11 @@
                   <label> Designation </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="designation" 
                     placeholder="Designation"
                     type="text"
-                    value={{userObj.designation}}
+                    [(ngModel)]=userObj.designation
                   />
                 </div>
               </div>
@@ -76,9 +86,11 @@
                   <label> password </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="password" 
                     placeholder="password"
                     type="text"
-                    value={{userObj.password}}
+                    [(ngModel)]=userObj.password
                   />
                 </div>
               </div>
@@ -87,8 +99,10 @@
                   <label for="exampleInputEmail1"> Email address </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="emailId" 
                     type="email"
-                    value={{userObj.emailId}}
+                    [(ngModel)]=userObj.emailId
                   />
                 </div>
               </div>
@@ -104,9 +118,11 @@
                   <label> Address </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="address" 
                     placeholder="Home Address"
                     type="text"
-                    value={{userObj.address}}
+                    [(ngModel)]=userObj.address
                   />
                 </div>
               </div>
@@ -118,9 +134,11 @@
                   <label> City </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="city" 
                     placeholder="City"
                     type="text"
-                    value={{userObj.city}}
+                    [(ngModel)]=userObj.city
                   />
                 </div>
               </div>
@@ -129,9 +147,11 @@
                     <label> State </label>
                     <input
                       class=" form-control"
+                      ngModel
+                      name="state" 
                       placeholder="State"
                       type="text"
-                      value={{userObj.state}}
+                      [(ngModel)]=userObj.state
                     />
                   </div>
                 </div>
@@ -140,9 +160,11 @@
                   <label> Country </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="country" 
                     placeholder="Country"
                     type="text"
-                    value={{userObj.country}}
+                    [(ngModel)]=userObj.country
                   />
                 </div>
               </div>
@@ -151,9 +173,11 @@
                     <label> Postal Code </label>
                     <input
                       class=" form-control"
+                      ngModel
+                      name="pincode" 
                       placeholder="ZIP Code"
                       type="number"
-                      value={{userObj.pincode}}
+                      [(ngModel)]=userObj.pincode
                     />
                   </div>
                 </div>
@@ -166,9 +190,11 @@
                   <label> Location Preference </label>
                   <input
                     class=" form-control"
+                    ngModel
+                    name="location_pref" 
                     placeholder="Location"
                     type="text"
-                    value={{userObj.location_pref}}
+                    [(ngModel)]=userObj.location_pref
                   />
                 </div>
               </div>
@@ -177,9 +203,11 @@
                     <label> Restaurant Preference </label>
                     <input
                       class=" form-control"
+                      ngModel
+                      name="restaurant_pref" 
                       placeholder="Restaurant"
                       type="text"
-                      value={{userObj.restaurant_pref}}
+                      [(ngModel)]=userObj.restaurant_pref
                     />
                   </div>
                 </div>
@@ -188,9 +216,11 @@
                       <label> Budget </label>
                       <input
                         class=" form-control"
+                        ngModel
+                        name="budget" 
                         placeholder="Maximum Budget"
                         type="number"
-                        value={{userObj.budget}}
+                        [(ngModel)]=userObj.budget
                       />
                     </div>
                   </div>
@@ -199,75 +229,56 @@
 
             <div class=" row">
               <div class=" col-md-3">
-                 <div class=" form-group ">
-                      <label> Food Preference: </label>
-                      <ng-multiselect-dropdown
-                        id="food_pref"  
-                        style="color: white;" 
-                        name="food_pref"   
-                        ngModel      
-                        [placeholder]="food"
-                        [data]="dropdownList"
-                        [settings]="userDropdownSettings"
-                        (onSelect)="onItemSelect($event)"
-                        (onSelectAll)="onSelectAll($event)"
-                        >
-                      </ng-multiselect-dropdown>
-                    </div>
-                  </div>
+                <div class=" form-group ">
+                  <label> Food Preference: </label>
+                    <ngx-select-dropdown 
+                      name="food_pref"
+                      ngModel 
+                      [(ngModel)]=userObj.food_pref
+                      [multiple]="false" 
+                      [options]="dropdownOptions_food">
+                    </ngx-select-dropdown>
+                </div>
+              </div>
               <div class=" col-md-3">
                 <div class=" form-group ">
                   <label> Drink Preference: </label>
-                  <ng-multiselect-dropdown
-                    id="drink"  
-                    style="color: white;" 
-                    name="drink"   
-                    ngModel      
-                    [placeholder]="drink"
-                    [data]="dropdownList1"
-                    [settings]="userDropdownSettings1"
-                    (onSelect)="onItemSelect($event)"
-                    (onSelectAll)="onSelectAll($event)"
-                    >
-                  </ng-multiselect-dropdown>
+                  <ngx-select-dropdown 
+                      name="drink"
+                      ngModel 
+                      [(ngModel)]=userObj.drink
+                      [multiple]="false" 
+                      [options]="dropdownOptions_drink">
+                    </ngx-select-dropdown>
                 </div>
               </div>
           <div class=" col-md-3">
               <div class=" form-group ">
                   <label> Smoke Preference: </label>
-                  <ng-multiselect-dropdown
-                    id="smoke"  
-                    style="color: white;" 
-                    name="smoke"   
-                    ngModel      
-                    [placeholder]="smoke"
-                    [data]="dropdownList2"
-                    [settings]="userDropdownSettings2"
-                    (onSelect)="onItemSelect($event)"
-                    (onSelectAll)="onSelectAll($event)"
-                    >
-                  </ng-multiselect-dropdown>
+                  <ngx-select-dropdown 
+                      name="smoke"
+                      ngModel 
+                      [(ngModel)]=userObj.smoke
+                      [multiple]="false" 
+                      [options]="dropdownOptions_smoke">
+                    </ngx-select-dropdown>
                 </div>
           </div>
           <div class=" col-md-3">
             <div class=" form-group ">
               <label> Marital Status : </label>
-              <ng-multiselect-dropdown
-                id="status"  
-                style="color: white;" 
-                name="marital_status"   
-                ngModel      
-                [placeholder]="status"
-                [data]="dropdownList3"
-                [settings]="userDropdownSettings3"
-                (onSelect)="onItemSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
-                >
-              </ng-multiselect-dropdown>
+              <ngx-select-dropdown 
+                      name="marital_status"
+                      ngModel 
+                      [(ngModel)]=userObj.marital_status
+                      [multiple]="false" 
+                      [options]="dropdownOptions_maritalStatus">
+                    </ngx-select-dropdown>
             </div>
           </div>
         </div>
 
+        
 
 
               <div class=" row">
@@ -276,10 +287,12 @@
                     <label> About Me </label>
                     <textarea
                       class=" form-control"
+                      ngModel
+                      name="about" 
                       cols="80"
                       placeholder="Here can be your description"
                       rows="4"
-                      value={{userObj.about}}
+                      [(ngModel)]=userObj.about
                     >
   Hello This is About Me :
   </textarea
@@ -287,15 +300,15 @@
                   </div>
                 </div>
               </div>
-
+              <div class=" card-footer">
+                <button class=" btn btn-fill btn-danger" type="submit">Save</button>
+              </div>
 
 
           </form>
 
         </div>
-        <div class=" card-footer">
-          <button class=" btn btn-fill btn-danger" type="submit">Save</button>
-        </div>
+        
       </div>
     </div>
 

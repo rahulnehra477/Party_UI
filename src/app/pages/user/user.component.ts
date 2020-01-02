@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServices } from './user.services';
 import { User } from '../model/User';
+import { NgForm } from '@angular/forms';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -17,15 +19,11 @@ export class UserComponent implements OnInit {
 
   userObj : User;
 
-  dropdownList = [];
-  dropdownList1 = [];
-  dropdownList2 = [];
-  dropdownList3 = [];
-  userDropdownSettings={};
-  userDropdownSettings1={};
-  userDropdownSettings2={};
-  userDropdownSettings3={};
-
+  dropdownOptions_food =[];
+  dropdownOptions_drink =[];
+  dropdownOptions_smoke =[];
+  dropdownOptions_maritalStatus =[];
+  
   ngOnInit() {
     console.log('Initializing');
     this.userService.getUserObj().subscribe(
@@ -39,59 +37,43 @@ export class UserComponent implements OnInit {
       this.status=this.userObj.marital_status;
     });
 
-    this.dropdownList = [
-      {  item_text: 'Veg' },
-      {  item_text: 'Non Veg' },
-      {  item_text: 'Strict Veg' },
+    this.dropdownOptions_food =[
+      'Veg',
+      'Non Veg',
+      'Strict Veg'
     ];
 
-    this.dropdownList1 = [
-      {  item_text: 'Yes' },
-      {  item_text: 'No' },
+    this.dropdownOptions_drink =[
+      'Yes',
+      'No'
     ];
 
-    this.dropdownList2 = [
-      {  item_text: 'Yes' },
-      {  item_text: 'No' },
+    this.dropdownOptions_smoke =[
+      'Yes',
+      'No'
     ];
 
-    this.dropdownList3 = [
-      {  item_text: 'Married' },
-      {  item_text: 'Un-married' },
+    this.dropdownOptions_maritalStatus =[
+      'Married',
+      'Un-married'
     ];
 
-    this.userDropdownSettings = {
-      singleSelection: true,
-      idField: 'item_text',
-      textField: 'item_text',
-      itemsShowLimit: 3,
-    };
+    
 
-    this.userDropdownSettings1 = {
-      singleSelection: true,
-      idField: 'item_text',
-      textField: 'item_text',
-      itemsShowLimit: 2,
-    };
+    
 
-    this.userDropdownSettings2 = {
-      singleSelection: true,
-      idField: 'item_text',
-      textField: 'item_text',
-      itemsShowLimit: 2,
-    };
-
-    this.userDropdownSettings3 = {
-      singleSelection: true,
-      idField: 'item_text',
-      textField: 'item_text',
-      itemsShowLimit: 2,
-    };
-
-
-
-
-    }
+   
   
 
+}
+save(form:NgForm){
+  console.log('Saving party info'+form.value);
+  this.userService.saveUser(form.value)
+  .subscribe(
+    (response => {
+      console.log(response);
+      }),
+  );
+
+}
 }

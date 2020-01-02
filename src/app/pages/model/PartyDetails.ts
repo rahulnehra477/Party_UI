@@ -6,4 +6,5 @@ export interface PartyDetails {
   empId: [];
   userId: string;
   partyDate: Date;
+  expense : DoubleRange;
 }
