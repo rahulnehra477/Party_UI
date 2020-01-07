@@ -1,6 +1,6 @@
 export const CONSTANTS = {
   // Nitin's machine
-  BASE_URL: "http://10.224.25.115:",
+  BASE_URL: "http://10.224.21.236:",
   PORT: 8102,
   LOGIN: "/party/login",
   PARTY_DETAILS: "/party/partydetail",

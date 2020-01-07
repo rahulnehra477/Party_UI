@@ -3,6 +3,7 @@ import { DashboardService } from "../dashboard/dashboard.service";
 import { MatTableDataSource, MatDialog } from "@angular/material";
 import { AddPartyExpenseDialogComponent } from "./add-party-expense-dialog/add-party-expense-dialog.component";
 import { AuthService } from "src/app/auth.service";
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: "app-tables",
@@ -22,7 +23,9 @@ export class TablesComponent implements OnInit {
   isAdmin = true;
   todaysdate: Date;
 
+
   dataSource: MatTableDataSource<any>;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(
     private dashboardService: DashboardService,

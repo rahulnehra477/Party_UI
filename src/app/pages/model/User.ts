@@ -19,4 +19,5 @@ export interface User {
     location_pref : Array<string>;
     projectId : Array<string>;
     admin : string;
+    profile_pic : string;
   }

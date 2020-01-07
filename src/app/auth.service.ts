@@ -25,8 +25,8 @@ export class AuthService {
         this.setAuthenticated(true);
         this.authUser = user.empId;
         console.log("authenticated----:" + this.isAuthenticated());
+        this.isUserAdmin = (<any>response).admin;
         if ((<any>response).admin) {
-          this.isUserAdmin = (<any>response).admin;
           this.router.navigate(["/dashboard"]);
         } else {
           this.router.navigate(["/tables"]);

@@ -19,7 +19,7 @@
             <div class="table-container">
               <table
                 mat-table
-                [dataSource]="dataSource"
+                [dataSource]="dataSource" 
                 class="table table-striped"
               >
                 <ng-container matColumnDef="party_title">
@@ -113,7 +113,7 @@
                   ]
                 </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                 <tr
                   mat-row
                   *matRowDef="let row; columns: displayedColumns"
