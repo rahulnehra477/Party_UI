@@ -31,7 +31,9 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule,
+  MatPaginatorModule,
+  MatSortModule,
 } from "@angular/material";
 import { AddPartyExpenseDialogComponent } from "src/app/pages/tables/add-party-expense-dialog/add-party-expense-dialog.component";
 import { PPChartModule } from "src/app/ppchart/ppchart.module";
@@ -63,8 +65,10 @@ import { UserServices } from 'src/app/pages/user/user.services';
     SelectDropDownModule,
     MatDialogModule,
     MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule,
     NgMultiSelectDropDownModule.forRoot(),
-    PPChartModule
+    PPChartModule,
   ],
   declarations: [
     UserComponent,

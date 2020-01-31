@@ -15,8 +15,8 @@ export interface User {
     emailId : string;
     marital_status : string;
     food_pref : string;
-    restarant_pref : Array<string>;
-    location_pref : Array<string>;
+    restarant_pref : string;
+    location_pref : string;
     projectId : Array<string>;
     admin : string;
     profile_pic : string;

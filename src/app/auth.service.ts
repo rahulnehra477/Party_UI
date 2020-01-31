@@ -3,6 +3,7 @@ import { Injectable, EventEmitter } from "@angular/core";
 import { User } from "./pages/model/User";
 import { HttpClient } from "@angular/common/http";
 import { CONSTANTS } from "./pages/constants/constants";
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AuthService {
@@ -12,7 +13,7 @@ export class AuthService {
   redirectUrl: string;
   //loginUrl = "http://localhost:8102/party/login";
   loginUrl = CONSTANTS.BASE_URL + CONSTANTS.PORT + CONSTANTS.LOGIN;
-  constructor(private router: Router, private httpClient: HttpClient) {
+  constructor(private router: Router, private httpClient: HttpClient, private toastr: ToastrService) {
     console.log("Initialising again Authservice");
   }
 
@@ -24,7 +25,7 @@ export class AuthService {
 
         this.setAuthenticated(true);
         this.authUser = user.empId;
-        console.log("authenticated----:" + this.isAuthenticated());
+        console.log("authenticated----:" + this.isAuthenticated() + "UID=="+this.authUser);
         this.isUserAdmin = (<any>response).admin;
         if ((<any>response).admin) {
           this.router.navigate(["/dashboard"]);
@@ -34,6 +35,7 @@ export class AuthService {
       },
 
       error => {
+        this.toastr.error('Incorrect Id Password Combination');
         console.log("Login failed");
         this.setAuthenticated(false);
       }

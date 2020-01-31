@@ -1,6 +1,5 @@
 .table-container {
-  max-height: 700px;
-  overflow: auto;
+  max-height: 100%;
 }
 
 .hoveraffect:hover {
@@ -12,4 +11,8 @@
 }
 .green {
 color: lightseagreen !important;
+}
+
+.mat-header-row {
+  background-color: #fd5d93;
 }

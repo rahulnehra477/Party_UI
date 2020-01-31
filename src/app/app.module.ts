@@ -10,7 +10,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { MatInputModule } from "@angular/material";
+import { MatInputModule, MatPaginator } from "@angular/material";
 import { MatCardModule } from "@angular/material";
 import { MatIconModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material";

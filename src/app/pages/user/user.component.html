@@ -12,15 +12,13 @@
             <div class=" row">
               <div class=" col-md-2">
                 <div class=" form-group">
-                  <label for="empId" > Employee Id </label>
+                  <label  > Employee Id </label>
                   <input
-                    id="empId"
+                    class="form-control"
                     ngModel
                     name="empId" 
-                    class="form-control"
                     type="text"
                     [(ngModel)]="userObj.empId"
-                    
                   />
                 </div>
               </div>
@@ -282,7 +280,7 @@
 
 
               <div class=" row">
-                <div class=" col-md-12">
+                <div class=" col-md-6">
                   <div class=" form-group">
                     <label> About Me </label>
                     <textarea
@@ -299,6 +297,27 @@
                     >
                   </div>
                 </div>
+                
+                
+                <div class=" col-md-6">
+                  <div class=" form-group">
+                    
+                    
+                  </div>
+                </div>
+
+
+                
+                <!-- <div class=" col-md-6">
+                  <div class=" form-group">
+                    <label class="label"> Upload Photo </label>
+                        <div class="upload_file_container form-group card-user">
+                           <span class="label"> Select file!</span>
+                            <input  class="form-control" type="file" name="profile_pic"(change)="onFileSelected($event)"   accept="image/*"/>
+                            <img id="profile_pic" [src]="imageSrc || 'http://placehold.it/60'" alt="No Image Chosen" class=" avatar"/>
+                        </div>
+                  </div>
+                </div> -->
               </div>
               <div class=" card-footer">
                 <button class=" btn btn-fill btn-danger" type="submit">Save</button>

@@ -34,13 +34,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   updateColor = () => {
     var navbar = document.getElementsByClassName("navbar")[0];
-    if (window.innerWidth < 993 && !this.isCollapsed) {
-      navbar.classList.add("bg-white");
-      navbar.classList.remove("navbar-transparent");
-    } else {
-      navbar.classList.remove("bg-white");
-      navbar.classList.add("navbar-transparent");
-    }
+    // if (window.innerWidth < 993 && !this.isCollapsed) {
+    //   navbar.classList.add("bg-white");
+    //   navbar.classList.remove("navbar-transparent");
+    // } else {
+    //   navbar.classList.remove("bg-white");
+    //   navbar.classList.add("navbar-transparent");
+    // }
   };
   ngOnInit() {
     window.addEventListener("resize", this.updateColor);
@@ -58,19 +58,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    this.router.navigate(["/signin"]);
+   this.router.navigate(["/signin"]);
   }
 
   collapse() {
     this.isCollapsed = !this.isCollapsed;
     const navbar = document.getElementsByTagName("nav")[0];
-    if (!this.isCollapsed) {
-      navbar.classList.remove("navbar-transparent");
-      navbar.classList.add("bg-white");
-    } else {
-      navbar.classList.add("navbar-transparent");
-      navbar.classList.remove("bg-white");
-    }
+    // if (!this.isCollapsed) {
+    //   navbar.classList.remove("navbar-transparent");
+    //   navbar.classList.add("bg-white");
+    // } else {
+    //   navbar.classList.add("navbar-transparent");
+    //   navbar.classList.remove("bg-white");
+    // }
   }
 
   sidebarOpen() {
@@ -93,7 +93,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   sidebarClose() {
     const html = document.getElementsByTagName("html")[0];
-    this.toggleButton.classList.remove("toggled");
+    //this.toggleButton.classList.remove("toggled");
     const mainPanel = <HTMLElement>(
       document.getElementsByClassName("main-panel")[0]
     );

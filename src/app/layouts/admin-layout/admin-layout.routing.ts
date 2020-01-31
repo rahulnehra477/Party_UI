@@ -29,7 +29,7 @@ export const AdminLayoutRoutes: Routes = [
     component: IconsComponent,
     canActivate: [AuthGuard]
   },
-  { path: "maps", component: MapComponent, canActivateChild: [AuthGuard] },
+  // { path: "maps", component: MapComponent, canActivateChild: [AuthGuard] },
   {
     path: "notifications",
     component: NotificationsComponent,
@@ -46,12 +46,13 @@ export const AdminLayoutRoutes: Routes = [
     component: TypographyComponent,
     canActivate: [AuthGuard]
   },
-  { path: "signin", component: SigninComponent },
+  { path: "signin",
+  component: SigninComponent 
+  },
   {
     path: "plan-party",
     component: PlanPartyComponent,
     canActivate: [AuthGuard]
   },
   { path: "regis", component: RegistrationComponent, canActivate: [AuthGuard] }
-  // { path: "rtl", component: RtlComponent }
 ];

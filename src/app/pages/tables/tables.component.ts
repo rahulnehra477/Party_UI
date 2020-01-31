@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { DashboardService } from "../dashboard/dashboard.service";
-import { MatTableDataSource, MatDialog } from "@angular/material";
+import { MatTableDataSource, MatDialog, MatPaginator, MatSort } from "@angular/material";
 import { AddPartyExpenseDialogComponent } from "./add-party-expense-dialog/add-party-expense-dialog.component";
 import { AuthService } from "src/app/auth.service";
-import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: "app-tables",
@@ -18,15 +17,14 @@ export class TablesComponent implements OnInit {
     "approved_by",
     "date_time"
   ];
-
   data = [];
   isAdmin = true;
   todaysdate: Date;
 
-
-  dataSource: MatTableDataSource<any>;
+  dataSource = new MatTableDataSource<any>(this.data);
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-
+    
   constructor(
     private dashboardService: DashboardService,
     private authService: AuthService,
@@ -34,11 +32,14 @@ export class TablesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    
     this.todaysdate = new Date();
     this.dashboardService.getUser().subscribe(parties => {
       console.log("parties:", parties);
       this.isAdmin = this.authService.isUserAdmin;
       this.dataSource = new MatTableDataSource(parties);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
