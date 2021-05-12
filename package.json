@@ -68,7 +68,7 @@
     "@ng-bootstrap/ng-bootstrap": "4.2.1",
     "angular-material": "^1.1.20",
     "angular-reactive-form": "^1.0.0",
-    "chart.js": "2.8.0",
+    "chart.js": "2.9.4",
     "core-js": "3.1.4",
     "igniteui-angular": "^8.2.13",
     "ng-multiselect-dropdown": "^0.2.10",
